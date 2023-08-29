@@ -1,0 +1,16 @@
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\bin\Debug\Pac_Man.exe.config
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\bin\Debug\Pac_Man.exe
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\bin\Debug\Pac_Man.pdb
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac-Man.csproj.AssemblyReference.cache
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac-Man.csproj.SuggestedBindingRedirects.cache
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\MainWindow.g.cs
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\App.g.cs
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac_Man_MarkupCompile.cache
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac_Man_MarkupCompile.lref
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\MainWindow.baml
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac_Man.g.resources
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac_Man.Properties.Resources.resources
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac-Man.csproj.GenerateResource.cache
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac-Man.csproj.CoreCompileInputs.cache
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac_Man.exe
+C:\Users\fynde\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac_Man.pdb
