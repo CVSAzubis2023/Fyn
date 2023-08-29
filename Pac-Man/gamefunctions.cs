@@ -1,12 +1,7 @@
-﻿namespace PacMan
+﻿namespace Pac_Man
 {
     public class gamefunctions
     {
-        public void collisiondetection()
-        {
-            
-        }
-        
         
     }
 }
