@@ -1,6 +1,6 @@
 ﻿namespace Pac_Man
 {
-    public class player
+    public class login
     {
         
     }
