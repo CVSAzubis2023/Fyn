@@ -16,6 +16,12 @@ namespace Pac_Man
             return posX & posY;
         }
 
+        public void setPos(int x, int y)
+        {
+            posX = x;
+            posY = y;
+        }
+
         public int getLifes()
         {
             return lifes;

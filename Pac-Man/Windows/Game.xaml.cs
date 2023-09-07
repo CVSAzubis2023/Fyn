@@ -9,8 +9,6 @@ namespace Pac_Man
 
     player player = new player();
     
-    
-    
     public partial class Game : Window
     {
         public Game()
