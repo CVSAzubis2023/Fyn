@@ -4,7 +4,10 @@
     {
         public void collisionDetection(int playerPosX, int playerPosY, int ghostX, int ghostY)
         {
-            player.getPos();
+            if ((playerPosX == ghostX) && (playerPosY == ghostY))
+            {
+                
+            }
         }
 
         public void gamestart()
@@ -20,7 +23,7 @@
         public void mapchanges()
         {
             
-            +
+            
         }
     }
 }

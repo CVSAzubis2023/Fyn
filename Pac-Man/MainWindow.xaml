@@ -45,7 +45,6 @@
 
         <TextBox 
             Name="TextBoxName"
-            TextChanged="TextBoxName_OnTextChanged"
             Grid.Row="1"
             Grid.Column="1"
             Margin="0,10,0,90"
@@ -94,9 +93,32 @@
             Background="Transparent"
             BorderBrush="Black"
             BorderThickness="2"/>
-        
+
         <Button 
             Grid.Row="2" 
-            Grid.Column="2"/>
+            Grid.Column="2"
+            Name="LoginButton"
+            Click="LoginButton_OnClick"
+            Margin="30,40"
+            Background="Transparent"
+            BorderBrush="Black"
+            BorderThickness="3"
+            Content="Login"
+            Foreground="White"
+            FontSize="18">
+        </Button>
+        <Button 
+            Name="Register"
+            Click="Register_Click"
+            Background="Transparent"
+            Content="Registrieren"
+            FontSize="22"
+            Foreground="White"
+            Grid.Row="2"
+            Grid.Column="0">
+            <Button.BorderBrush>
+                
+            </Button.BorderBrush>
+        </Button>
     </Grid>
 </Window>

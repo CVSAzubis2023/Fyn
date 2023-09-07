@@ -1,20 +1,30 @@
 ﻿using System.CodeDom.Compiler;
+using System.Windows.Input;
 
 namespace Pac_Man
 {
     public class player
     {
-        private int lifes;
-        private int score;
-        private int orrientation;
+        private int lifes = 3;
+        private int score = 0;
+        private int orrientation = 0;
 
-        private int posX;
-        private int posY;
+        private int posX = 0;
+        private int posY = 0;
 
-        public int getPos()
+        private int newX = 0;
+        private int newY = 0;
+
+        public int getPosX()
         {
-            return posX & posY;
+            return posX;
         }
+
+        public int getPosY()
+        {
+            return posY;
+        }
+        
 
         public void setPos(int x, int y)
         {
@@ -42,9 +52,23 @@ namespace Pac_Man
             lifes++;
         }
 
-        public void move(int newX, int newY)
+        public void move(object sender)
         {
+            switch (sender)
+            {
+                case "w":
+                    break;
+                case "a":
+                    break;
+                case "s":
+                    break;
+                case "d":
+                    break;
+                default :
+                    break;
+            }
             
+            setPos(newX, newY);
         }
 
         public int getScore()

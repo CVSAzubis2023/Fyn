@@ -13,9 +13,14 @@
             
         }
 
-        public int getPos()
+        public int getPosX()
         {
-            return posX & posY;
+            return posX;
+        }
+
+        public int getPosY()
+        {
+            return posY;
         }
     }
 }

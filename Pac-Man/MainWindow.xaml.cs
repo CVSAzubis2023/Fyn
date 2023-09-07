@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -12,16 +14,18 @@ namespace Pac_Man
     /// </summary>
     public partial class MainWindow
     {
+        private login login = new login();
+
         public MainWindow()
         {
             InitializeComponent();
+            login.conenctSQL();
             TextBlockHeadLine.Text = "Login";
-            
         }
 
         private void ButtonClose_OnClick(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void ButtonMinimize_OnClick(object sender, RoutedEventArgs e)
@@ -40,11 +44,26 @@ namespace Pac_Man
                 this.WindowState = WindowState.Normal;
             }
         }
-
-        private void TextBoxName_OnTextChanged(object sender, TextChangedEventArgs e)
+        
+        private void LoginButton_OnClick(object sender, RoutedEventArgs e)
         {
-            string test;
-            test = TextBoxName.Text;
+            login.setPassword(PwBox.Password.ToString());
+            login.setName(TextBoxName.Text.ToString());
+            if (login.testCredentials() == true)
+            {
+                Debug.WriteLine("Worked");
+                Game game = new Game();
+                game.Show();
+            }
+            else
+            {
+                Debug.WriteLine("Didnt work");
+            }
+        }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
