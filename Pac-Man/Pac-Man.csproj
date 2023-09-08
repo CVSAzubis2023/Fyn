@@ -91,11 +91,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pictures\baum.png" />
-    <Resource Include="Pictures\berge.png" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
+    <Resource Include="Pictures\Ghost_blue.bmp" />
+    <Resource Include="Pictures\Ghost_blue.png" />
+    <Resource Include="Pictures\Ghost_cyan.bmp" />
+    <Resource Include="Pictures\Ghost_cyan.png" />
+    <Resource Include="Pictures\Ghost_green.bmp" />
+    <Resource Include="Pictures\Ghost_green.png" />
+    <Resource Include="Pictures\Ghost_orange.bmp" />
+    <Resource Include="Pictures\Ghost_orange.png" />
+    <Resource Include="Pictures\Ghost_red.bmp" />
+    <Resource Include="Pictures\Ghost_red.png" />
+    <Resource Include="Pictures\icon.png" />
+    <Resource Include="Pictures\Pacman.bmp" />
+    <Resource Include="Pictures\Pacman.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

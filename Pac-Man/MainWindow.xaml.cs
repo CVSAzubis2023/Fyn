@@ -63,7 +63,7 @@ namespace Pac_Man
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Work in progress");
         }
     }
 }

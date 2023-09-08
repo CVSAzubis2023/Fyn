@@ -26,7 +26,6 @@ C:\Users\FDeubner\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac-Man.csproj.Generate
 C:\Users\FDeubner\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac-Man.csproj.CoreCompileInputs.cache
 C:\Users\FDeubner\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac_Man.exe
 C:\Users\FDeubner\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac_Man.pdb
-C:\Users\FDeubner\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac_Man_Content.g.cs
 C:\Users\FDeubner\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Windows\Game.g.cs
 C:\Users\FDeubner\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Pac_Man_MarkupCompile.lref
 C:\Users\FDeubner\Documents\GitHub\Fyn\Pac-Man\obj\Debug\Windows\Game.baml
