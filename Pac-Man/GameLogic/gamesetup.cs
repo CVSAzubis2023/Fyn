@@ -1,10 +1,14 @@
-﻿using System.Xaml;
+﻿using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Shapes;
+using System.Xaml;
 
 namespace Pac_Man
 {
     public class gamesetup
     {
-        private int mapstate;
+        private int mapstate = 0;
+        private bool mapInitDone;
 
         private int[,] map = new int[31,28]{
                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -38,24 +42,23 @@ namespace Pac_Man
                 {1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1},
                 {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            };
-        
-        public void drawMapStart()
+        };
+
+        public int[,] getMap()
         {
-            
+            return map;
         }
 
-        public void drawMap()
+        public bool getmapInitDone()
         {
-            switch (mapstate)
-            {
-                case 1:
-                    break;
-                default: 
-                    break;
-
-            }
+            return mapInitDone;
         }
+
+        public void setmapInitDone(bool x)
+        {
+            mapInitDone = x;
+        }
+
 
         public int checkMapState()
         {

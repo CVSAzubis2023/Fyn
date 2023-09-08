@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using System.Net.NetworkInformation;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace Pac_Man
 {
@@ -18,7 +22,6 @@ namespace Pac_Man
         public Game()
         {
             InitializeComponent();
-
         }
         
         private void Game_OnKeyDown(object sender, KeyEventArgs e)
@@ -104,7 +107,67 @@ namespace Pac_Man
         private void ButtonPlay_Click(object sender, RoutedEventArgs e)
         {
             ButtonPlay.Visibility = Visibility.Hidden;
-            gamesetup.drawMapStart();
+            drawMapStart();
+        }
+
+        public void drawMapStart()
+        {
+            int[,] tempmap = new int[31,28];
+            tempmap = gamesetup.getMap();
+
+            if (gamesetup.getmapInitDone() == false)
+            {
+                if (gamesetup.checkMapState() == 0)
+                {
+                    for (int i = 0; i < 28; i++)
+                    {
+                        for (int j = 0; j < 31; j++)
+                        {
+                            Rectangle mapTile = new Rectangle();
+
+                            switch (tempmap[j,i])
+                            {
+                                case 0:
+                                    Waende.Children.Add(mapTile);
+                                    Grid.SetColumn(mapTile, i);
+                                    Grid.SetRow(mapTile, j);
+                                    mapTile.Fill = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                                    break;
+                                case 1:
+                                    Waende.Children.Add(mapTile);
+                                    Grid.SetColumn(mapTile, i);
+                                    Grid.SetRow(mapTile, j);
+                                    mapTile.Fill = new SolidColorBrush(Color.FromRgb(0, 0, 70));
+                                    mapTile.StrokeThickness = 12;
+                                    mapTile.Stroke = new SolidColorBrush(Color.FromRgb(0,0,100));
+                                    break;
+                                case 2:
+                                    Waende.Children.Add(mapTile);
+                                    Grid.SetColumn(mapTile, i);
+                                    Grid.SetRow(mapTile, j);
+                                    mapTile.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 50));
+                                    mapTile.StrokeThickness = 12;
+                                    mapTile.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                                    break;
+                                case 3:
+                                    Waende.Children.Add(mapTile);
+                                    Grid.SetColumn(mapTile, i);
+                                    Grid.SetRow(mapTile, j);
+                                    mapTile.Fill = new SolidColorBrush(Color.FromRgb(50, 0, 0));
+                                    break;
+                                default:
+                                    Waende.Children.Add(mapTile);
+                                    Grid.SetColumn(mapTile, i);
+                                    Grid.SetRow(mapTile, j);
+                                    mapTile.Fill = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                                    break;
+                            }
+
+                            gamesetup.setmapInitDone(true);
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -12,13 +12,7 @@
         {
             if (posPlayerX > posX)
             {
-                if (true) 
-                { 
-                    
-                }
-
-                    //try to move up;
-                
+                    //try to move up;   
             }
 
             if (posPlayerX < posX)

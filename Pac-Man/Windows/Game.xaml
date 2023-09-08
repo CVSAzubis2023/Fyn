@@ -71,7 +71,8 @@
         </Style>
     </Window.Resources>
     <Canvas Background="Transparent">
-        <Grid Background="Transparent">
+        <Grid Background="Transparent"
+              Name="Waende">
             <!--28 Reihen -->
             <Grid.RowDefinitions>
                 <RowDefinition />
