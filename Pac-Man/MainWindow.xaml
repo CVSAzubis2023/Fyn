@@ -198,7 +198,11 @@
             Margin="0,10,0,90"
             BorderBrush="#6f0014"
             BorderThickness="5"
-            Background="Transparent"/>
+            Background="Transparent"
+            Foreground="White"
+            FontFamily="Arial"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"/>
 
         <PasswordBox 
             Name="PwBox"
@@ -207,7 +211,11 @@
             Margin="0,70,0,10"
             BorderBrush="#6F0014"
             BorderThickness="5" 
-            Background="Transparent"/>
+            Background="Transparent"
+            Foreground="White"
+            FontFamily="Arial"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"/>
 
 
         <Button 

@@ -4,6 +4,7 @@ using System.Text;
 using System.Data.SqlTypes;
 using System.Data.SqlClient;
 using System.Reflection;
+using System.Windows;
 
 namespace Pac_Man
 {
@@ -54,6 +55,7 @@ namespace Pac_Man
                             }
                             else
                             {
+                                MessageBox.Show("Wrong Credentials");
                                 return false;
                             }
                         }

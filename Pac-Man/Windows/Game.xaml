@@ -164,6 +164,11 @@
             Canvas.Left="234" 
             Canvas.Top="399" 
             Width="331" 
+            Content="Play"
+            Foreground="White"
+            FontSize="70"
+            FontWeight="Bold"
+            FontFamily="Arial"
             HorizontalAlignment="Left" 
             VerticalAlignment="Center">
             <Button.BorderBrush>

@@ -22,7 +22,39 @@ namespace Pac_Man
         
         private void Game_OnKeyDown(object sender, KeyEventArgs e)
         {
-            player1.move(sender);
+            string keyString = null;
+
+            if(e.Key == Key.W || e.Key == Key.Up)
+            {
+                keyString = "W";
+            } 
+            else
+            {
+                if (e.Key == Key.A || e.Key == Key.Left)
+                {
+                    keyString = "A";
+                }
+                else
+                {
+                    if (e.Key == Key.S || e.Key == Key.Down)
+                    {
+                        keyString = "S";
+                    }
+                    else
+                    {
+                        if (e.Key == Key.D || e.Key == Key.Right)
+                        {
+                            keyString = "D";
+                        }
+                        else
+                        {
+                            keyString = null;
+                        }
+                    }
+                }
+            }
+
+            player1.move(keyString);
             //Blue ghost
             game.collisionDetection(player1.getPosX(), player1.getPosY(), ghostBlue.getPosX(), ghostBlue.getPosY());
             //Red ghost

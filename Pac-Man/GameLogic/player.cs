@@ -1,4 +1,5 @@
 ﻿using System.CodeDom.Compiler;
+using System.Diagnostics;
 using System.Windows.Input;
 
 namespace Pac_Man
@@ -52,19 +53,28 @@ namespace Pac_Man
             lifes++;
         }
 
-        public void move(object sender)
+        public void move(string sender)
         {
+            Debug.WriteLine(sender);
             switch (sender)
             {
                 case "w":
+                    Debug.WriteLine("Up");
                     break;
                 case "a":
+                    Debug.WriteLine("Left");
                     break;
                 case "s":
+                    Debug.WriteLine("Down");
                     break;
                 case "d":
+                    Debug.WriteLine("Right");
+                    break;
+                case "Up":
+                    Debug.WriteLine("Up");
                     break;
                 default :
+                    Debug.WriteLine("Default");
                     break;
             }
             
