@@ -160,7 +160,8 @@
             Name="ButtonPlay"
             Click="ButtonPlay_Click" 
             Background="Transparent"
-            BorderThickness="4" Height="165" 
+            BorderThickness="6" 
+            Height="165" 
             Canvas.Left="234" 
             Canvas.Top="399" 
             Width="331" 
@@ -179,5 +180,11 @@
                 </LinearGradientBrush>
             </Button.BorderBrush>
         </Button>
+        <Rectangle
+            x:Name="PlayerPacMan"
+            Height="40"
+            Width="40">
+        </Rectangle>
+        
     </Canvas>
 </Window>

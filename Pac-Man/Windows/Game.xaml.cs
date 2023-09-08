@@ -7,7 +7,7 @@ namespace Pac_Man
     {
         ghost ghostRed = new ghost();
         ghost ghostBlue = new ghost();
-        ghost ghostYellow = new ghost();
+        ghost ghostOrange = new ghost();
         ghost ghostPurple = new ghost();
 
         player player1 = new player();
@@ -18,6 +18,7 @@ namespace Pac_Man
         public Game()
         {
             InitializeComponent();
+
         }
         
         private void Game_OnKeyDown(object sender, KeyEventArgs e)
@@ -55,12 +56,25 @@ namespace Pac_Man
             }
 
             player1.move(keyString);
+            ghostRed.move(player1.getPosX(), player1.getPosY());
+            if (player1.getTilesMoved() > 49)
+            {
+                ghostBlue.move(player1.getPosX(), player1.getPosY());
+                if (player1.getTilesMoved() > 99)
+                {
+                    ghostOrange.move(player1.getPosX(), player1.getPosY());
+                    if (player1.getTilesMoved() > 150)
+                    {
+                        ghostPurple.move(player1.getPosX(), player1.getPosY());
+                    }
+                }
+            }
             //Blue ghost
             game.collisionDetection(player1.getPosX(), player1.getPosY(), ghostBlue.getPosX(), ghostBlue.getPosY());
             //Red ghost
             game.collisionDetection(player1.getPosX(), player1.getPosY(), ghostRed.getPosX(), ghostRed.getPosY());
             //Yellow ghost
-            game.collisionDetection(player1.getPosX(), player1.getPosY(), ghostYellow.getPosX(), ghostYellow.getPosY());
+            game.collisionDetection(player1.getPosX(), player1.getPosY(), ghostOrange.getPosX(), ghostOrange.getPosY());
             //Purple ghost
             game.collisionDetection(player1.getPosX(), player1.getPosY(), ghostPurple.getPosX(), ghostPurple.getPosY());
         }

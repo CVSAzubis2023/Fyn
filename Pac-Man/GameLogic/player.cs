@@ -8,7 +8,9 @@ namespace Pac_Man
     {
         private int lifes = 3;
         private int score = 0;
+
         private int orrientation = 0;
+        private int tilesmoved = 0;
 
         private int posX = 0;
         private int posY = 0;
@@ -24,6 +26,11 @@ namespace Pac_Man
         public int getPosY()
         {
             return posY;
+        }
+
+        public int getTilesMoved()
+        {
+            return tilesmoved;
         }
         
 
@@ -55,6 +62,7 @@ namespace Pac_Man
 
         public void move(string sender)
         {
+            tilesmoved++;
             Debug.WriteLine(sender);
             switch (sender)
             {

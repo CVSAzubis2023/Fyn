@@ -8,9 +8,32 @@
         private int speed;
         private int state;
         
-        public void move()
+        public void move(int posPlayerX, int posPlayerY)
         {
-            
+            if (posPlayerX > posX)
+            {
+                if (true) 
+                { 
+                    
+                }
+
+                    //try to move up;
+                
+            }
+
+            if (posPlayerX < posX)
+            {
+                //try to move down
+            }
+
+            if (posPlayerY > posY)
+            {
+                // try to move right
+            }
+            if (posPlayerY < posY)
+            {
+                // try to move left
+            }
         }
 
         public int getPosX()
