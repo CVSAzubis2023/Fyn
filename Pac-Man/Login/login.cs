@@ -5,6 +5,7 @@ using System.Data.SqlTypes;
 using System.Data.SqlClient;
 using System.Reflection;
 using System.Windows;
+using System.Diagnostics;
 
 namespace Pac_Man
 {
@@ -14,6 +15,7 @@ namespace Pac_Man
 
         private string name;
         private string password;
+        private int amount;
 
         public void conenctSQL()
         {
@@ -39,29 +41,33 @@ namespace Pac_Man
 
         public bool testCredentials()
         {
+            getCount();
+            Debug.WriteLine(amount);
+
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
                 string sql = "SELECT * FROM dbo.Table_1";
+
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        for (int i = 0; i < amount; i++)
                         {
-                            if ((name == reader.GetString(0)) && (password == reader.GetString(1)) == true)
+                            reader.Read();
+                            if (((name == reader.GetString(i)) && (password == reader.GetString(i+1))) == true)
                             {
                                 return true;
                             }
-                            else
-                            {
-                                MessageBox.Show("Wrong Credentials");
-                                return false;
-                            }
                         }
+                        
+                        MessageBox.Show("Wrong Credentials");
+                        return false;
                     }
                 }
             }
+
 
             if (name == "admin" && password == "test")
             {
@@ -71,6 +77,26 @@ namespace Pac_Man
             {
                 return false;
             }  
+        }
+
+        public void getCount()
+        {
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                string sqlCount = "SELECT COUNT(*) FROM dbo.Table_1";
+
+                using (SqlCommand cmad = new SqlCommand(sqlCount, connection))
+                {
+                    connection.Open();
+
+                    SqlDataReader rd = cmad.ExecuteReader();
+
+                   while (rd.Read())
+                   {
+                        amount = rd.GetInt32(0);
+                   }
+                }
+            }
         }
     }
 }
