@@ -1,0 +1,24 @@
+head{
+
+}
+
+body{
+    background-image: url('backgroundimg.jpg');
+}
+
+h1 {
+    color:purple;
+    font-size: 60px;
+    font-family: Arial, serif;
+    align-content: center;
+    text-align: center;
+
+}
+
+p{
+    color:deeppink;
+}
+
+table{
+    border: 2px solid black;
+}
