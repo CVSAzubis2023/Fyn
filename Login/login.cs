@@ -41,6 +41,11 @@ namespace Pac_Man
 
         public bool testCredentials()
         {
+            bool nameTest = false;
+            bool passwordTest = false;
+            int rowNumber1 = 0;
+            int rownumber2 = 0;
+
             getCount();
             Debug.WriteLine(amount);
 
@@ -48,7 +53,7 @@ namespace Pac_Man
 
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
-                string sql = "SELECT * FROM dbo.Table_1 WHERE Name AND Password";
+                string sql = "SELECT Name FROM dbo.Table_1";
                 Debug.WriteLine(sql);
 
                 using (SqlCommand command = new SqlCommand(sql, connection))
@@ -61,15 +66,47 @@ namespace Pac_Man
                             reader.Read();
                             Debug.WriteLine(reader.GetString(0));
 
-                            if (((name == reader.GetString(0)) && (password == reader.GetString(1)) == true))
+                            if (name == reader.GetString(0))
                             {
-                                return true;
+                                nameTest = true;
+                                rowNumber1 = i;
                             }
                         }
-                        
-                        MessageBox.Show("Wrong Credentials");
-                        return false;
                     }
+                    connection.Close();
+                }
+
+
+                sql = "SELECT Password FROM dbo.Table_1";
+                Debug.WriteLine(sql);
+
+                using (SqlCommand cmd = new SqlCommand(sql, connection))
+                {
+                    connection.Open();
+                    using (SqlDataReader rd = cmd.ExecuteReader())
+                    {
+                        for (int j = 0; j < amount; j++)
+                        {
+                            rd.Read();
+                            Debug.WriteLine(rd.GetString(0));
+
+                            if (password == rd.GetString(0))
+                            {
+                                passwordTest = true;
+                                rownumber2 = j;
+                            }
+                        }
+                    }
+                    connection.Close();
+                }
+
+                if (((nameTest == true) && (passwordTest == true)) && (rowNumber1 == rownumber2))
+                {
+                    return true;
+                } else
+                {
+                    MessageBox.Show("Wrong Credentials");
+                    return false;
                 }
             }
         }
