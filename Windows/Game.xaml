@@ -129,11 +129,10 @@
         <Grid Background="Transparent"
               Name="Waende" 
               Height="829" 
-              Width="784" 
+              Width="824" 
               Canvas.Left="5"
-              Canvas.Right="5"
               Canvas.Top="115"
-              Canvas.Bottom="5" 
+              Canvas.Bottom="5"
               HorizontalAlignment="Left" 
               VerticalAlignment="Center">
             <!--31 Reihen -->
@@ -297,34 +296,65 @@
         <Rectangle
             x:Name="PlayerPacMan"
             Height="40"
-            Width="40">
+            Width="40" Canvas.Left="448" Canvas.Top="262">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Pictures/PacMan.png"></ImageBrush>
+            </Rectangle.Fill>
         </Rectangle>
 
         <Rectangle
             x:Name="GhostRed"
             Height="40"
-            Width="40">
+            Width="40" Canvas.Left="81" Canvas.Top="330" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="270"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Pictures/Ghost_red.png"></ImageBrush>
+            </Rectangle.Fill>
         </Rectangle>
 
         <Rectangle
             x:Name="GhostBlue"
             Height="40"
-            Width="40">
+            Width="40" Canvas.Left="368" Canvas.Top="680">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Pictures/Ghost_cyan.png"></ImageBrush>
+            </Rectangle.Fill>
         </Rectangle>
 
         <Rectangle
             x:Name="GhostOrange"
             Height="40"
-            Width="40">
+            Width="40" Canvas.Left="327" Canvas.Top="260">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Pictures/Ghost_orange.png"></ImageBrush>
+            </Rectangle.Fill>
         </Rectangle>
 
         <Rectangle
             x:Name="GhostPurple"
             Height="40"
-            Width="40">
+            Width="40" 
+            Canvas.Left="693" 
+            Canvas.Top="555" 
+            RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Pictures/Ghost_green.png"></ImageBrush>
+            </Rectangle.Fill>
         </Rectangle>
-
-
-
     </Canvas>
 </Window>
