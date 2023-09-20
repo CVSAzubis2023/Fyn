@@ -199,7 +199,7 @@
             BorderBrush="#6f0014"
             BorderThickness="5"
             Background="Transparent"
-            Foreground="White"
+            Foreground="#dbdbdb"
             FontFamily="Arial"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"/>
@@ -212,7 +212,7 @@
             BorderBrush="#6F0014"
             BorderThickness="5" 
             Background="Transparent"
-            Foreground="White"
+            Foreground="#dbdbdb"
             FontFamily="Arial"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"/>
@@ -268,6 +268,7 @@
                 </LinearGradientBrush>
             </Button.BorderBrush>
         </Button>
+
         <Button Style="{DynamicResource ButtonStyle1}" 
             Name="Register"
             Click="Register_Click"

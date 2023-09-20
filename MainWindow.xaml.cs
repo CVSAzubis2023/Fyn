@@ -54,6 +54,7 @@ namespace Pac_Man
                 Debug.WriteLine("Worked");
                 Game game = new Game();
                 game.Show();
+                this.Close();
             }
             else
             {

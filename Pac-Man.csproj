@@ -50,6 +50,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="log.cs" />
     <Compile Include="Login\login.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -89,7 +90,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="logs\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\Ghost_blue.bmp" />
     <Resource Include="Pictures\Ghost_blue.png" />
@@ -104,6 +107,10 @@
     <Resource Include="Pictures\icon.png" />
     <Resource Include="Pictures\Pacman.bmp" />
     <Resource Include="Pictures\Pacman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\close.png" />
+    <Resource Include="Pictures\minimize.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

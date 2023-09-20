@@ -1,4 +1,5 @@
-﻿using System.Net.NetworkInformation;
+﻿using System.Diagnostics.SymbolStore;
+using System.Net.NetworkInformation;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -30,25 +31,37 @@ namespace Pac_Man
 
             if(e.Key == Key.W || e.Key == Key.Up)
             {
-                keyString = "W";
+                if (Canvas.GetLeft(PlayerPacMan) < 39)
+                {
+                    keyString = "W";
+                }
             } 
             else
             {
                 if (e.Key == Key.A || e.Key == Key.Left)
                 {
-                    keyString = "A";
+                    if (Canvas.GetLeft(PlayerPacMan) < 39)
+                    {
+                        keyString = "A";
+                    }
                 }
                 else
                 {
                     if (e.Key == Key.S || e.Key == Key.Down)
                     {
-                        keyString = "S";
+                        if (Canvas.GetLeft(PlayerPacMan) < 39)
+                        {
+                            keyString = "S";
+                        }
                     }
                     else
                     {
                         if (e.Key == Key.D || e.Key == Key.Right)
                         {
-                            keyString = "D";
+                            if (Canvas.GetLeft(PlayerPacMan) < 39)
+                            {
+                                keyString = "D";
+                            }
                         }
                         else
                         {
@@ -107,6 +120,7 @@ namespace Pac_Man
         private void ButtonPlay_Click(object sender, RoutedEventArgs e)
         {
             ButtonPlay.Visibility = Visibility.Hidden;
+            ButtonBack.Visibility = Visibility.Hidden;
             drawMapStart();
         }
 
@@ -168,6 +182,18 @@ namespace Pac_Man
                     }
                 }
             }
+        }
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
+        }
+
+        private void ButtonSettings_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
