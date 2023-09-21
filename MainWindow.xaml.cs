@@ -15,11 +15,12 @@ namespace Pac_Man
     public partial class MainWindow
     {
         private login login = new login();
-
+        
         public MainWindow()
         {
             InitializeComponent();
             login.conenctSQL();
+
             TextBlockHeadLine.Text = "Login";
         }
 
@@ -51,14 +52,13 @@ namespace Pac_Man
             login.setName(TextBoxName.Text.ToString());
             if (login.testCredentials() == true)
             {
-                Debug.WriteLine("Worked");
                 Game game = new Game();
                 game.Show();
                 this.Close();
             }
             else
             {
-                Debug.WriteLine("Didnt work");
+
             }
         }
 

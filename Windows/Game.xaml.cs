@@ -10,20 +10,26 @@ namespace Pac_Man
 {
     public partial class Game : Window
     {
+        player player1 = new player();
+
         ghost ghostRed = new ghost();
         ghost ghostBlue = new ghost();
         ghost ghostOrange = new ghost();
         ghost ghostPurple = new ghost();
 
-        player player1 = new player();
-    
         gamesetup gamesetup = new gamesetup();
         gamefunctions game = new gamefunctions();
-        
+
+        log fs = new log();
+
+        ghost ghost = new ghost();
+
         public Game()
         {
             InitializeComponent();
+            fs.createLog();
         }
+            
         
         private void Game_OnKeyDown(object sender, KeyEventArgs e)
         {
@@ -122,6 +128,7 @@ namespace Pac_Man
             ButtonPlay.Visibility = Visibility.Hidden;
             ButtonBack.Visibility = Visibility.Hidden;
             drawMapStart();
+            
         }
 
         public void drawMapStart()
@@ -178,10 +185,17 @@ namespace Pac_Man
                             }
 
                             gamesetup.setmapInitDone(true);
+                            fs.updateLogTimeStamp("Game init Done");
                         }
                     }
                 }
             }
+        }
+
+        public void drawmap(int[,] map)
+        {
+            int[,] tempmap = new int[31,28];
+            tempmap = gamesetup.getMap();
         }
 
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
@@ -193,7 +207,6 @@ namespace Pac_Man
 
         private void ButtonSettings_Click(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }

@@ -5,12 +5,17 @@ using System.Xaml;
 
 namespace Pac_Man
 {
-    public class gamesetup
+    public class gamesetup : Game
     {
         private int mapstate = 0;
-        private bool mapInitDone;
+        private bool mapInitDone = false;
+        private int currentmap = 0;
 
-        private int[,] map = new int[31,28]{
+        
+        //Maps
+        #region Maps
+
+        private int[,] map1 = new int[31, 28]{
                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                 {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
                 {1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1},
@@ -44,9 +49,57 @@ namespace Pac_Man
                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         };
 
+
+        private int[,] map2 = new int[31, 28];
+        /*
+         private int[,] map2 = new int[31,28]{
+            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+            {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
+            {1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1}
+            {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1}, 
+            {1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 2, 2, 2, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1}, 
+            {1, 2, 2, 2, 2 }, 
+            { }, 
+            { },
+            { },
+            { },
+            { },
+            { },
+            { },
+            { },
+            { },
+            { },
+            { },
+            { },
+            { },
+            { },
+            { },
+        };
+        */
+
+        private int[,] map3 = new int[31, 28];
+
+        #endregion 
+
         public int[,] getMap()
         {
-            return map;
+            if (mapInitDone == false)
+            {
+                return map1;
+            }
+            else
+            {
+                switch (currentmap)
+                {
+                    case 1:
+                        return map2;
+                    case 2:
+                        return map3;
+                    default:
+                        return null;
+                }
+            }
+            
         }
 
         public bool getmapInitDone()
@@ -57,6 +110,7 @@ namespace Pac_Man
         public void setmapInitDone(bool x)
         {
             mapInitDone = x;
+            currentmap++;
         }
 
 
