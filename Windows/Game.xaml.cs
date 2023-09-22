@@ -10,24 +10,16 @@ namespace Pac_Man
 {
     public partial class Game : Window
     {
-        player player1 = new player();
-
-        ghost ghostRed = new ghost();
-        ghost ghostBlue = new ghost();
-        ghost ghostOrange = new ghost();
-        ghost ghostPurple = new ghost();
-
-        gamesetup gamesetup = new gamesetup();
-        gamefunctions game = new gamefunctions();
-
-        log fs = new log();
-
-        ghost ghost = new ghost();
 
         public Game()
         {
             InitializeComponent();
-            fs.createLog();
+
+            gamesetup gamesetup = new gamesetup();
+           
+            gamesetup.fs.createLog();
+
+
         }
             
         
@@ -207,6 +199,7 @@ namespace Pac_Man
 
         private void ButtonSettings_Click(object sender, RoutedEventArgs e)
         {
+
         }
     }
 }

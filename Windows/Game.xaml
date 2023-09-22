@@ -219,6 +219,7 @@
             FontSize="20"
             Background="Transparent">
         </Button>
+        
         <Button
             x:Name="ButtonSettings"
             Click="ButtonSettings_Click"
@@ -232,6 +233,7 @@
             FontSize="20"
             Background="Transparent">
         </Button>
+        
         <Button
             Name="Minimize"
             Click="Minimize_OnClick"

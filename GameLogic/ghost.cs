@@ -1,6 +1,6 @@
 ﻿namespace Pac_Man
 {
-    public class ghost : Game
+    public class ghost
     {
         private int posX;
         private int posY;
@@ -13,7 +13,6 @@
             if (posPlayerX > posX)
             {
                     //try to move up;
-                
             }
 
             if (posPlayerX < posX)

@@ -75,7 +75,7 @@ namespace Pac_Man
                     break;
                 case "a":
                     Debug.WriteLine("Left");
-                    Canvas.SetLeft(PlayerPacMan, Canvas.GetLeft(PlayerPacMan) - speed) ;
+                    Canvas.SetLeft(PlayerPacMan, Canvas.GetLeft(PlayerPacMan) - speed);
                     break;
                 case "s":
                     Debug.WriteLine("Down");

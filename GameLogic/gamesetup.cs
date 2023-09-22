@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Security.Cryptography.X509Certificates;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Xaml;
@@ -122,6 +123,22 @@ namespace Pac_Man
         public void setMapState(int x)
         {
             mapstate = x;
+        }
+
+        public void gameSetup()
+        {
+            player player1 = new player();
+
+            ghost ghostRed = new ghost();
+            ghost ghostBlue = new ghost();
+            ghost ghostOrange = new ghost();
+            ghost ghostPurple = new ghost();
+
+            gamefunctions game = new gamefunctions();
+
+            log fs = new log();
+
+            ghost ghost = new ghost();
         }
     }
 }
