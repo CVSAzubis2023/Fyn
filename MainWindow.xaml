@@ -217,7 +217,6 @@
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"/>
 
-
         <Button 
             Name="ButtonClose"
             Click="ButtonClose_OnClick"
@@ -267,6 +266,24 @@
                     <GradientStop Color="Gray"/>
                 </LinearGradientBrush>
             </Button.BorderBrush>
+        </Button>
+
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            Name="NoLoginPlay"
+            Click="NoLoginPlay_Click"
+            Margin="30, 40"
+            BorderThickness="4"
+            Foreground="White"
+            FontSize="14"
+            Background="Transparent">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                Play<LineBreak/>Without<LineBreak/>Login
+            </TextBlock>
+
         </Button>
 
         <Button Style="{DynamicResource ButtonStyle1}" 

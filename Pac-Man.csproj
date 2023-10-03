@@ -50,7 +50,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="log.cs" />
+    <Compile Include="GameLogic\log.cs" />
+    <Compile Include="Login\savingscores.cs" />
+    <Compile Include="Windows\gameNoLogin.xaml.cs">
+      <DependentUpon>gameNoLogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login\login.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -67,6 +71,10 @@
     <Compile Include="GameLogic\gamesetup.cs" />
     <Compile Include="GameLogic\ghost.cs" />
     <Compile Include="GameLogic\player.cs" />
+    <Page Include="Windows\gameNoLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -6,7 +6,7 @@ using System.Xaml;
 
 namespace Pac_Man
 {
-    public class gamesetup : Game
+    public class gamesetup
     {
         private int mapstate = 0;
         private bool mapInitDone = false;

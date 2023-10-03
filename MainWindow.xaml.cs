@@ -53,6 +53,7 @@ namespace Pac_Man
             if (login.testCredentials() == true)
             {
                 Game game = new Game();
+                game.setPlayer(TextBoxName.Text);
                 game.Show();
                 this.Close();
             }
@@ -65,6 +66,13 @@ namespace Pac_Man
         private void Register_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Work in progress");
+        }
+
+        private void NoLoginPlay_Click(object sender, RoutedEventArgs e)
+        {
+            gameNoLogin game = new gameNoLogin();
+            game.Show();
+            this.Close();
         }
     }
 }

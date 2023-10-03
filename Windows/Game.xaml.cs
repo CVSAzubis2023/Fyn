@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.SymbolStore;
+﻿using Pac_Man.Login;
+using System.Diagnostics.SymbolStore;
 using System.Net.NetworkInformation;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,16 +11,22 @@ namespace Pac_Man
 {
     public partial class Game : Window
     {
+        gamesetup gamesetup = new gamesetup();
+        gamefunctions game = new gamefunctions();
+
+        player player1 = new player();
+
+        ghost ghostRed = new ghost();
+        ghost ghostBlue = new ghost();
+        ghost ghostOrange = new ghost();
+        ghost ghostPurple = new ghost();
+
+        private string playerName;
+
 
         public Game()
         {
             InitializeComponent();
-
-            gamesetup gamesetup = new gamesetup();
-           
-            gamesetup.fs.createLog();
-
-
         }
             
         
@@ -177,7 +184,7 @@ namespace Pac_Man
                             }
 
                             gamesetup.setmapInitDone(true);
-                            fs.updateLogTimeStamp("Game init Done");
+                            //fs.updateLogTimeStamp("Game init Done");
                         }
                     }
                 }
@@ -200,6 +207,18 @@ namespace Pac_Man
         private void ButtonSettings_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        public void setPlayer(string name)
+        {
+            playerName = name;
+        }
+
+        public void gameend()
+        {
+            savingscores savingscores = new savingscores();
+            savingscores.setPlayer(playerName);
+             
         }
     }
 }

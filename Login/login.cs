@@ -39,6 +39,16 @@ namespace Pac_Man
             password = pw;
         }
 
+        public string getName()
+        {
+            return name;
+        }
+
+        public string getPassword()
+        {
+            return password;
+        }
+
         public bool testCredentials()
         {
             bool nameTest = false;
@@ -50,64 +60,72 @@ namespace Pac_Man
             Debug.WriteLine(amount);
 
             string[,] test = new string[amount,amount];
-
-            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            try
             {
-                string sql = "SELECT Name FROM dbo.Table_1";
-                Debug.WriteLine(sql);
-
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        for (int i = 0; i < amount; i++)
-                        {
-                            reader.Read();
-                            Debug.WriteLine(reader.GetString(0));
+                    string sql = "SELECT Name FROM dbo.Table_1";
+                    Debug.WriteLine(sql);
 
-                            if (name == reader.GetString(0))
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            for (int i = 0; i < amount; i++)
                             {
-                                nameTest = true;
-                                rowNumber1 = i;
+                                reader.Read();
+                                Debug.WriteLine(reader.GetString(0));
+
+                                if (name == reader.GetString(0))
+                                {
+                                    nameTest = true;
+                                    rowNumber1 = i;
+                                }
                             }
                         }
+                        connection.Close();
                     }
-                    connection.Close();
-                }
 
 
-                sql = "SELECT Password FROM dbo.Table_1";
-                Debug.WriteLine(sql);
+                    sql = "SELECT Password FROM dbo.Table_1";
+                    Debug.WriteLine(sql);
 
-                using (SqlCommand cmd = new SqlCommand(sql, connection))
-                {
-                    connection.Open();
-                    using (SqlDataReader rd = cmd.ExecuteReader())
+                    using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
-                        for (int j = 0; j < amount; j++)
+                        connection.Open();
+                        using (SqlDataReader rd = cmd.ExecuteReader())
                         {
-                            rd.Read();
-                            Debug.WriteLine(rd.GetString(0));
-
-                            if (password == rd.GetString(0))
+                            for (int j = 0; j < amount; j++)
                             {
-                                passwordTest = true;
-                                rownumber2 = j;
+                                rd.Read();
+                                Debug.WriteLine(rd.GetString(0));
+
+                                if (password == rd.GetString(0))
+                                {
+                                    passwordTest = true;
+                                    rownumber2 = j;
+                                }
                             }
                         }
+                        connection.Close();
                     }
-                    connection.Close();
-                }
 
-                if (((nameTest == true) && (passwordTest == true)) && (rowNumber1 == rownumber2))
-                {
-                    return true;
-                } else
-                {
-                    MessageBox.Show("Wrong Credentials");
-                    return false;
+                    if (((nameTest == true) && (passwordTest == true)) && (rowNumber1 == rownumber2))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong Credentials");
+                        return false;
+                    }
                 }
+            }
+            catch
+            {
+                MessageBox.Show("Coudnt connect to SQL Server, starting without connection!");
+                return true;
             }
         }
 
