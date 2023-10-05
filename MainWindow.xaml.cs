@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pac_Man.Windows;
+using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -66,6 +67,9 @@ namespace Pac_Man
         private void Register_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Work in progress");
+            Register register = new Register();
+            register.Show();
+            this.Hide();
         }
 
         private void NoLoginPlay_Click(object sender, RoutedEventArgs e)

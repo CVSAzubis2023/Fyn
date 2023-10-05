@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-G:\GitHub\Fyn\obj\Debug\
+C:\Users\FDeubner\Documents\GitHub\Fyn\obj\Debug\
 Pac_Man
 none
 false
 DEBUG;TRACE
-G:\GitHub\Fyn\App.xaml
-31717317637
+C:\Users\FDeubner\Documents\GitHub\Fyn\App.xaml
+4-1690673903
 
-141052265745
+151559643737
 9-1753732648
-Windows\gameNoLogin.xaml;MainWindow.xaml;Windows\Game.xaml;
+Windows\gameNoLogin.xaml;MainWindow.xaml;Windows\Game.xaml;Windows\Register.xaml;
 
-False
+True
 

@@ -71,6 +71,9 @@
     <Compile Include="GameLogic\gamesetup.cs" />
     <Compile Include="GameLogic\ghost.cs" />
     <Compile Include="GameLogic\player.cs" />
+    <Compile Include="Windows\Register.xaml.cs">
+      <DependentUpon>Register.xaml</DependentUpon>
+    </Compile>
     <Page Include="Windows\gameNoLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +83,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Windows\Game.xaml" />
+    <Page Include="Windows\Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -283,11 +283,10 @@
                 VerticalAlignment="Center">
                 Play<LineBreak/>Without<LineBreak/>Login
             </TextBlock>
-
         </Button>
 
         <Button Style="{DynamicResource ButtonStyle1}" 
-            Name="Register"
+            Name="RegisterButton"
             Click="Register_Click"
             Background="Transparent"
             Content="Registrieren"

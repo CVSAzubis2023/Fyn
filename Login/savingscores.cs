@@ -83,6 +83,19 @@ namespace Pac_Man.Login
                                     line = i;
                                 }
                             }
+
+                            connection.Close();
+                        }
+
+                        commandSQL = "";
+                        using (SqlCommand command2 = new SqlCommand(commandSQL, connection))
+                        {
+                            connection.Open();
+
+
+
+
+
                         }
                     }
                 }
