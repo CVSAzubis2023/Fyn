@@ -58,18 +58,13 @@ namespace Pac_Man
                 game.Show();
                 this.Close();
             }
-            else
-            {
-
-            }
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Work in progress");
             Register register = new Register();
             register.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void NoLoginPlay_Click(object sender, RoutedEventArgs e)

@@ -35,32 +35,6 @@ namespace Pac_Man.Windows
             builder.InitialCatalog = "Test";
         }
 
-        void createPlayer()
-        {
-            /*
-                Connect to sql server
-                Insert into
-                    User with name, password hash, rest should be set to 0
-                close connection
-             */
-        }
-
-        bool checkInput()
-        {
-            /*
-                Check if the input Name is a valid string
-                check if the password is a valid string an can be turned into a byte array
-                return true/false
-             */
-
-            return false;
-        }
-
-        private void RegisterNow_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ButtonYourAccount_Click(object sender, RoutedEventArgs e)
         {
 
@@ -74,6 +48,13 @@ namespace Pac_Man.Windows
         private void ButtonRegister_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
         }
     }
 }
