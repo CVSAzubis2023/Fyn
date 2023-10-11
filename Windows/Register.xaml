@@ -183,10 +183,36 @@
                         Grid.Column="0">
                         
                     </TextBlock>
+                    
                     <TextBlock
                         Name="YourPassword"
                         Grid.Row="0"
                         Grid.Column="1">
+                        
+                    </TextBlock>
+
+                    <TextBlock
+                        Name="TimesPlayed"
+                        Grid.Row="0"
+                        Grid.Column="2">
+                        
+                    </TextBlock>
+
+                    <TextBlock
+                        Name="YourLatestScore"
+                        Grid.Row="1"
+                        Grid.Column="0">
+                    </TextBlock>
+
+                    <TextBlock
+                        Name="YourHighscore"
+                        Grid.Row="1"
+                        Grid.Column="1">
+                        
+                    </TextBlock>
+
+                    <TextBlock
+                        Name="">
                         
                     </TextBlock>
                     
