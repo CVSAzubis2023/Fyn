@@ -13,6 +13,7 @@ namespace Pac_Man
     {
         gamesetup gamesetup = new gamesetup();
         gamefunctions game = new gamefunctions();
+        log log = new log();
 
         player player1 = new player();
 
@@ -27,6 +28,7 @@ namespace Pac_Man
         public Game()
         {
             InitializeComponent();
+            log.updateLog("Game page initialized");
         }
             
         
@@ -114,6 +116,7 @@ namespace Pac_Man
         {
             if (this.WindowState == WindowState.Normal)
             {
+                log.updateLog("Window size toggled");
                 this.WindowState = WindowState.Maximized;
             }
             else
@@ -124,6 +127,7 @@ namespace Pac_Man
 
         private void ButtonPlay_Click(object sender, RoutedEventArgs e)
         {
+            log.updateLog("Game starting");
             ButtonPlay.Visibility = Visibility.Hidden;
             ButtonBack.Visibility = Visibility.Hidden;
             drawMapStart();

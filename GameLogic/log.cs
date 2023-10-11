@@ -25,7 +25,6 @@ namespace Pac_Man
                     fs.Write(info, 0, Buffer.ByteLength(info));
                     fs.Close();
                 }
-
                 state = true;
             }
         }
@@ -37,10 +36,12 @@ namespace Pac_Man
                 FileStream fs = File.Open(filepath, FileMode.Open);
 
                 byte[] info = new UTF8Encoding(true).GetBytes(text);
-                fs.Write(info, 0, Buffer.ByteLength(info));
+                fs.Write(info, 0, info.Length);
 
                 byte[] newLine = Encoding.UTF8.GetBytes(Environment.NewLine);
                 fs.Write(newLine, 0, newLine.Length);
+
+                fs.Close();
             }
 
             else
@@ -60,13 +61,14 @@ namespace Pac_Man
 
                 byte[] newLine = Encoding.UTF8.GetBytes(Environment.NewLine);
                 fs.Write(newLine, 0, newLine.Length);
+
+                fs.Close();
             }
             else
             {
                 Debug.WriteLine("Log File wasnt created, retrying");
                 createLog();
             }
-
         }
     }
 }

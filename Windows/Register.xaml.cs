@@ -37,17 +37,38 @@ namespace Pac_Man.Windows
 
         private void ButtonYourAccount_Click(object sender, RoutedEventArgs e)
         {
+            InfoYourAccount.Visibility = Visibility.Visible;
+            InfoYourAccount.Focusable = true;
 
+            InfoSettings.Visibility = Visibility.Hidden;
+            InfoSettings.Focusable = false;
+
+            InfoRegister.Visibility = Visibility.Hidden;
+            InfoRegister.Focusable = false;
         }
 
         private void ButtonSettings_Click(object sender, RoutedEventArgs e)
         {
+            InfoYourAccount.Visibility = Visibility.Hidden;
+            InfoYourAccount.Focusable = false;
 
+            InfoSettings.Visibility = Visibility.Visible;
+            InfoSettings.Focusable = true;
+
+            InfoRegister.Visibility = Visibility.Hidden;
+            InfoRegister.Focusable = false;
         }
 
         private void ButtonRegister_Click(object sender, RoutedEventArgs e)
         {
+            InfoYourAccount.Visibility = Visibility.Hidden;
+            InfoYourAccount.Focusable = false;
 
+            InfoSettings.Visibility = Visibility.Hidden;
+            InfoSettings.Focusable = false;
+
+            InfoRegister.Visibility = Visibility.Visible;
+            InfoRegister.Focusable = true;
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

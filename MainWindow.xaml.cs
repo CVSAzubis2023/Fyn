@@ -16,11 +16,14 @@ namespace Pac_Man
     public partial class MainWindow
     {
         private login login = new login();
+        private log log = new log();
+
         
         public MainWindow()
         {
             InitializeComponent();
             login.conenctSQL();
+            log.createLog();
 
             TextBlockHeadLine.Text = "Login";
         }
@@ -53,6 +56,7 @@ namespace Pac_Man
             login.setName(TextBoxName.Text.ToString());
             if (login.testCredentials() == true)
             {
+                log.updateLog("Login succesfull, starting game");
                 Game game = new Game();
                 game.setPlayer(TextBoxName.Text);
                 game.Show();
@@ -69,9 +73,10 @@ namespace Pac_Man
 
         private void NoLoginPlay_Click(object sender, RoutedEventArgs e)
         {
-            gameNoLogin game = new gameNoLogin();
-            game.Show();
-            this.Close();
+            MessageBox.Show("Work in Progress!");
+            //gameNoLogin game = new gameNoLogin();
+            //game.Show();
+            //this.Close();
         }
     }
 }
