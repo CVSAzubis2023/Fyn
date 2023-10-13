@@ -177,42 +177,147 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
+                    <!-- Name -->
+                    
+                    <TextBlock
+                        Name="YourNameLabel"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        TextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Arial"
+                        Height="Auto"
+                        Text="Your Name">
+                        
+                    </TextBlock>
+
                     <TextBlock
                         Name="YourName"
                         Grid.Row="0"
-                        Grid.Column="0">
+                        Grid.Column="0"
+                        TextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Arial"
+                        Height="Auto">
+
+                    </TextBlock>
+                    
+                    <!-- Password -->
+                        
+                    <TextBlock
+                        Name="YourPasswordLabel"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        TextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Arial"
+                        Height="Auto"
+                        Text="Your Password">
+                        
+                    </TextBlock>
+
+                    <TextBlock>
                         
                     </TextBlock>
                     
+                    <!-- Timesplayed -->
+
                     <TextBlock
-                        Name="YourPassword"
+                        Name="TimesPlayedLabel"
                         Grid.Row="0"
-                        Grid.Column="1">
+                        Grid.Column="2"
+                        TextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Arial"
+                        Height="Auto"
+                        Text="Times Played">
                         
                     </TextBlock>
 
                     <TextBlock
                         Name="TimesPlayed"
                         Grid.Row="0"
-                        Grid.Column="2">
+                        Grid.Column="2"
+                        TextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Arial"
+                        Height="Auto">
+                        
+                    </TextBlock>
+                    
+                    <!-- Latest Score -->
+
+                    <TextBlock
+                        Name="YourLatestScoreLabel"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        TextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Arial"
+                        Height="Auto"
+                        Text="Your Latest Score">
                         
                     </TextBlock>
 
                     <TextBlock
                         Name="YourLatestScore"
                         Grid.Row="1"
-                        Grid.Column="0">
+                        Grid.Column="0"
+                        TextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Arial"
+                        Height="Auto">
+                        
+                    </TextBlock>
+                    
+                    <!-- Highscore -->
+
+                    <TextBlock
+                        Name="YourHighscoreLabel"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        TextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Arial"
+                        Height="Auto"
+                        Text="Your Highscore">
+                        
                     </TextBlock>
 
                     <TextBlock
                         Name="YourHighscore"
                         Grid.Row="1"
-                        Grid.Column="1">
+                        Grid.Column="1"
+                        TextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Arial"
+                        Height="Auto">
+                        
+                    </TextBlock>
+                    
+                    <!-- Playtime -->
+
+                    <TextBlock
+                        Name="OverallPlayTimeLabel"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        TextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Arial"
+                        Height="Auto"
+                        Text="Hours Played">
                         
                     </TextBlock>
 
                     <TextBlock
-                        Name="">
+                        Name="OverallPlayTime"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        TextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Arial"
+                        Height="Auto">
+                        
                         
                     </TextBlock>
                     
@@ -228,7 +333,8 @@
                 Visibility="Hidden"
                 Focusable="False">
 
-                <TextBlock>
+                <TextBlock
+                    Text="Work in progress">
                     
                 </TextBlock>
             </Grid>
@@ -242,7 +348,7 @@
                 Focusable="False">
 
                 <TextBlock>
-                    
+                   
                 </TextBlock>
             </Grid>
         </Grid>

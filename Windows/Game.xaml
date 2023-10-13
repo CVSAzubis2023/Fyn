@@ -130,7 +130,7 @@
         <Grid Background="Transparent"
               Name="Waende" 
               Height="829" 
-              Width="824" 
+              Width="812" 
               Canvas.Left="5"
               Canvas.Top="115"
               Canvas.Bottom="5"
@@ -220,7 +220,7 @@
             FontSize="20"
             Background="Transparent">
         </Button>
-        
+
         <Button
             x:Name="ButtonSettings"
             Click="ButtonSettings_Click"
@@ -234,7 +234,7 @@
             FontSize="20"
             Background="Transparent">
         </Button>
-        
+
         <Button
             Name="Minimize"
             Click="Minimize_OnClick"
@@ -298,8 +298,11 @@
         <!--#region -->
         <Rectangle
             x:Name="PlayerPacMan"
-            Height="40"
-            Width="40" Canvas.Left="448" Canvas.Top="262">
+            Height="32"
+            Width="32" 
+            Canvas.Left="448" 
+            Canvas.Top="262"
+            RenderTransformOrigin="0.5,0.5">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/Pictures/PacMan.png"></ImageBrush>
             </Rectangle.Fill>
@@ -307,8 +310,11 @@
 
         <Rectangle
             x:Name="GhostRed"
-            Height="40"
-            Width="40" Canvas.Left="81" Canvas.Top="330" RenderTransformOrigin="0.5,0.5">
+            Height="32"
+            Width="32" 
+            Canvas.Left="81"
+            Canvas.Top="330"
+            RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -324,8 +330,11 @@
 
         <Rectangle
             x:Name="GhostBlue"
-            Height="40"
-            Width="40" Canvas.Left="368" Canvas.Top="680">
+            Height="32"
+            Width="32"
+            Canvas.Left="368" 
+            Canvas.Top="680"
+            RenderTransformOrigin="0.5,0.5">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/Pictures/Ghost_cyan.png"></ImageBrush>
             </Rectangle.Fill>
@@ -333,8 +342,11 @@
 
         <Rectangle
             x:Name="GhostOrange"
-            Height="40"
-            Width="40" Canvas.Left="327" Canvas.Top="260">
+            Height="32"
+            Width="32" 
+            Canvas.Left="327" 
+            Canvas.Top="260"
+            RenderTransformOrigin="0.5,0.5">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/Pictures/Ghost_orange.png"></ImageBrush>
             </Rectangle.Fill>
@@ -342,8 +354,8 @@
 
         <Rectangle
             x:Name="GhostPurple"
-            Height="40"
-            Width="40" 
+            Height="32"
+            Width="32" 
             Canvas.Left="693" 
             Canvas.Top="555" 
             RenderTransformOrigin="0.5,0.5">
@@ -351,7 +363,7 @@
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="90"/>
+                    <RotateTransform Angle="90.918"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Rectangle.RenderTransform>

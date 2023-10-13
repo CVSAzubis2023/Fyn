@@ -8,5 +8,9 @@ namespace Pac_Man.Settings_etc
 {
     internal class register
     {
+        public void connectsql()
+        {
+
+        }
     }
 }

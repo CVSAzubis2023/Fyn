@@ -52,7 +52,7 @@
     </ApplicationDefinition>
     <Compile Include="GameLogic\log.cs" />
     <Compile Include="Login\savingscores.cs" />
-    <Compile Include="Settings etc\myacount.cs" />
+    <Compile Include="Settings etc\myaccount.cs" />
     <Compile Include="Settings etc\register.cs" />
     <Compile Include="Settings etc\Settings.cs" />
     <Compile Include="Windows\gameNoLogin.xaml.cs">

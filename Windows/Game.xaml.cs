@@ -1,4 +1,5 @@
 ﻿using Pac_Man.Login;
+using System.Diagnostics;
 using System.Diagnostics.SymbolStore;
 using System.Net.NetworkInformation;
 using System.Windows;
@@ -24,7 +25,6 @@ namespace Pac_Man
 
         private string playerName;
 
-
         public Game()
         {
             InitializeComponent();
@@ -35,10 +35,11 @@ namespace Pac_Man
         private void Game_OnKeyDown(object sender, KeyEventArgs e)
         {
             string keyString = null;
-
+            
             if(e.Key == Key.W || e.Key == Key.Up)
             {
-                if (Canvas.GetLeft(PlayerPacMan) < 39)
+                Debug.WriteLine("W");
+                if (Canvas.GetTop(PlayerPacMan) > 39)
                 {
                     keyString = "W";
                 }
@@ -47,7 +48,8 @@ namespace Pac_Man
             {
                 if (e.Key == Key.A || e.Key == Key.Left)
                 {
-                    if (Canvas.GetLeft(PlayerPacMan) < 39)
+                    Debug.WriteLine("A");
+                    if (Canvas.GetLeft(PlayerPacMan) > 32)
                     {
                         keyString = "A";
                     }
@@ -56,7 +58,8 @@ namespace Pac_Man
                 {
                     if (e.Key == Key.S || e.Key == Key.Down)
                     {
-                        if (Canvas.GetLeft(PlayerPacMan) < 39)
+                        Debug.WriteLine("S");
+                        if (Canvas.GetTop(PlayerPacMan) < 930)
                         {
                             keyString = "S";
                         }
@@ -65,20 +68,44 @@ namespace Pac_Man
                     {
                         if (e.Key == Key.D || e.Key == Key.Right)
                         {
-                            if (Canvas.GetLeft(PlayerPacMan) < 39)
+                            Debug.WriteLine("D");
+                            if (Canvas.GetLeft(PlayerPacMan) < 750)
                             {
                                 keyString = "D";
                             }
                         }
                         else
                         {
+                            Debug.WriteLine("No Key is pressed?");
                             keyString = null;
                         }
                     }
                 }
             }
+            
+            player1.move(keyString, Canvas.GetLeft(PlayerPacMan), Canvas.GetLeft(PlayerPacMan));
+            
+            switch (keyString)
+            {
+                case "W":
+                    PlayerPacMan.RenderTransform = new RotateTransform(90);
+                    Canvas.SetTop(PlayerPacMan, (Canvas.GetTop(PlayerPacMan) - player1.getSpeed()));
+                    break;
+                case "A":
+                    PlayerPacMan.RenderTransform = new RotateTransform(0);
+                    Canvas.SetLeft(PlayerPacMan, Canvas.GetLeft(PlayerPacMan) - player1.getSpeed());
+                    break;
+                case "S":
+                    PlayerPacMan.RenderTransform = new RotateTransform(270);
+                    Canvas.SetTop(PlayerPacMan, Canvas.GetTop(PlayerPacMan) + player1.getSpeed());
+                    break;
+                case "D":
+                    PlayerPacMan.RenderTransform = new RotateTransform(180);
+                    Canvas.SetLeft(PlayerPacMan, Canvas.GetLeft(PlayerPacMan) + player1.getSpeed());
+                    break;
+            }
 
-            player1.move(keyString);
+            
             ghostRed.move(player1.getPosX(), player1.getPosY());
             if (player1.getTilesMoved() > 49)
             {
@@ -92,6 +119,7 @@ namespace Pac_Man
                     }
                 }
             }
+            
             //Blue ghost
             game.collisionDetection(player1.getPosX(), player1.getPosY(), ghostBlue.getPosX(), ghostBlue.getPosY());
             //Red ghost
@@ -128,9 +156,15 @@ namespace Pac_Man
         private void ButtonPlay_Click(object sender, RoutedEventArgs e)
         {
             log.updateLog("Game starting");
+
             ButtonPlay.Visibility = Visibility.Hidden;
             ButtonBack.Visibility = Visibility.Hidden;
+
             drawMapStart();
+
+            player1.setLifes(3);
+            player1.setScore(0);
+            //player1.setPos();
             
         }
 
@@ -210,7 +244,7 @@ namespace Pac_Man
 
         private void ButtonSettings_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("WIP");
         }
 
         public void setPlayer(string name)

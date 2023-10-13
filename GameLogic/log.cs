@@ -17,12 +17,14 @@ namespace Pac_Man
         public void createLog()
         {
             byte[] info = Encoding.UTF8.GetBytes(filepath + " File was created");
+            byte[] newLine = Encoding.UTF8.GetBytes(Environment.NewLine);
 
             if (File.Exists(filepath) != true)
             {
                 using (FileStream fs = File.Create(filepath))
                 {
                     fs.Write(info, 0, Buffer.ByteLength(info));
+                    fs.Write(newLine, 0, newLine.Length);
                     fs.Close();
                 }
                 state = true;

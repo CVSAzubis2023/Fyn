@@ -45,6 +45,8 @@ namespace Pac_Man.Windows
 
             InfoRegister.Visibility = Visibility.Hidden;
             InfoRegister.Focusable = false;
+
+            Headline.Text = "Your Account";
         }
 
         private void ButtonSettings_Click(object sender, RoutedEventArgs e)
@@ -57,6 +59,8 @@ namespace Pac_Man.Windows
 
             InfoRegister.Visibility = Visibility.Hidden;
             InfoRegister.Focusable = false;
+
+            Headline.Text = "Settings";
         }
 
         private void ButtonRegister_Click(object sender, RoutedEventArgs e)
@@ -69,6 +73,8 @@ namespace Pac_Man.Windows
 
             InfoRegister.Visibility = Visibility.Visible;
             InfoRegister.Focusable = true;
+
+            Headline.Text = "Register";
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

@@ -127,18 +127,7 @@ namespace Pac_Man
 
         public void gameSetup()
         {
-            player player1 = new player();
 
-            ghost ghostRed = new ghost();
-            ghost ghostBlue = new ghost();
-            ghost ghostOrange = new ghost();
-            ghost ghostPurple = new ghost();
-
-            gamefunctions game = new gamefunctions();
-
-            log fs = new log();
-
-            ghost ghost = new ghost();
         }
     }
 }

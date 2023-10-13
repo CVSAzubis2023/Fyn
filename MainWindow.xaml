@@ -378,7 +378,7 @@
             Name="RegisterButton"
             Click="Register_Click"
             Background="Transparent"
-            Content="Registrieren"
+            Content="Profile"
             FontSize="20"
             Foreground="White"
             Grid.Row="2"

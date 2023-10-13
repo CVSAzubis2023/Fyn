@@ -1,4 +1,5 @@
 ﻿using System.CodeDom.Compiler;
+using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -7,7 +8,7 @@ namespace Pac_Man
 {
     public class player
     {
-        private int lifes = 3;
+        private int lifes = 0;
         private int score = 0;
 
         private double speed = 4 * 8;
@@ -63,36 +64,12 @@ namespace Pac_Man
             lifes++;
         }
 
-        public void move(string sender)
+        public void move(string sender, double x, double y)
         {
             tilesmoved++;
-            Debug.WriteLine(sender);
-            switch (sender)
-            {
-                case "w":
-                    Debug.WriteLine("Up");
-                    //Canvas.SetTop(PlayerPacMan, Canvas.GetTop(PlayerPacMan) - speed);
-                    break;
-                case "a":
-                    Debug.WriteLine("Left");
-                    //Canvas.SetLeft(PlayerPacMan, Canvas.GetLeft(PlayerPacMan) - speed);
-                    break;
-                case "s":
-                    Debug.WriteLine("Down");
-                    //Canvas.SetTop(PlayerPacMan , Canvas.GetTop(PlayerPacMan) + speed);
-                    break;
-                case "d":
-                    Debug.WriteLine("Right");
-                    //Canvas.SetLeft(PlayerPacMan, Canvas.GetLeft(PlayerPacMan) + speed);
-                    break;
-                case "Up":
-                    Debug.WriteLine("Up");
-                    //Canvas.SetLeft(PlayerPacMan, Canvas.GetTop(PlayerPacMan) - speed);
-                    break;
-                default :
-                    Debug.WriteLine("Default");
-                    break;
-            }
+
+            newX = (int)x;
+            newY = (int)y;
             
             setPos(newX, newY);
         }
@@ -110,6 +87,11 @@ namespace Pac_Man
         public void incScore()
         {
             score++;
+        }
+
+        public double getSpeed()
+        {
+            return speed;
         }
     }
 }
