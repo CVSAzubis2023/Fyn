@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Pac_Man.Settings_etc
 {
-    internal class register
+    internal class comboboxitems : ObservableCollection<string>
     {
-        public void connectsql()
-        {
+        public comboboxitems() 
+        { 
 
         }
     }

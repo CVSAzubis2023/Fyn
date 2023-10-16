@@ -43,9 +43,6 @@ namespace Pac_Man.Windows
             InfoSettings.Visibility = Visibility.Hidden;
             InfoSettings.Focusable = false;
 
-            InfoRegister.Visibility = Visibility.Hidden;
-            InfoRegister.Focusable = false;
-
             Headline.Text = "Your Account";
         }
 
@@ -57,24 +54,20 @@ namespace Pac_Man.Windows
             InfoSettings.Visibility = Visibility.Visible;
             InfoSettings.Focusable = true;
 
-            InfoRegister.Visibility = Visibility.Hidden;
-            InfoRegister.Focusable = false;
-
             Headline.Text = "Settings";
         }
 
         private void ButtonRegister_Click(object sender, RoutedEventArgs e)
         {
-            InfoYourAccount.Visibility = Visibility.Hidden;
-            InfoYourAccount.Focusable = false;
-
-            InfoSettings.Visibility = Visibility.Hidden;
-            InfoSettings.Focusable = false;
-
-            InfoRegister.Visibility = Visibility.Visible;
-            InfoRegister.Focusable = true;
-
-            Headline.Text = "Register";
+            string browser = "https://github.com/CVSAzubis2023/Fyn";
+            try
+            {
+                System.Diagnostics.Process.Start(browser);
+            }
+            catch
+            {
+                MessageBox.Show("Coudnt start a browser!");
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -82,6 +75,11 @@ namespace Pac_Man.Windows
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();
+        }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            
         }
     }
 }

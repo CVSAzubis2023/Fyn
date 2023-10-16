@@ -6,12 +6,14 @@ using System.Data.SqlClient;
 using System.Reflection;
 using System.Windows;
 using System.Diagnostics;
+using Pac_Man.Login;
 
 namespace Pac_Man
 {
     public class login
     {
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+        hashing hash = new hashing();
 
         private string name;
         private string password;
@@ -36,7 +38,8 @@ namespace Pac_Man
 
         public void setPassword(string pw)
         {
-            password = pw;
+            password = hash.setPW(pw);
+            
         }
 
         public string getName()

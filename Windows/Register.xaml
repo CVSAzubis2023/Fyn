@@ -9,7 +9,8 @@
         Height="450" 
         Width="800"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Background="Gray">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -163,7 +164,8 @@
                 Name="InfoYourAccount"
                 Grid.Column="1" 
                 Background="Gray" 
-                Grid.Row="1">
+                Grid.Row="1"
+                Visibility="Hidden">
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -328,28 +330,47 @@
             <Grid
                 Grid.Column="1"
                 Grid.Row="1"
-                Background="Blue"
+                Background="Gray"
                 Name="InfoSettings"
-                Visibility="Hidden"
+                Visibility="Visible"
                 Focusable="False">
 
-                <TextBlock
-                    Text="Work in progress">
+                <Grid.Resources>
+                    <src: />
+                </Grid.Resources>
+
+                <!--#region Volume-->
+                
+                <TextBlock 
+                    Margin="28,15 ,449,289"
+                    Text="Volume"
+                    TextAlignment="Center"
+                    FontFamily="Arial"
+                    FontSize="18">
                     
                 </TextBlock>
-            </Grid>
+                
+                <Slider Margin="32,36,454,269"
+                        Name="VolumeSlider"
+                        ValueChanged="Slider_ValueChanged">
 
-            <Grid
-                Grid.Column="1"
-                Grid.Row="1"
-                Background="Green"
-                Name="InfoRegister"
-                Visibility="Hidden"
-                Focusable="False">
+                </Slider>
+                <!--#endregion-->
 
-                <TextBlock>
-                   
+                <TextBlock
+                    Text="Standart Difficulty"
+                    TextAlignment="Center"
+                    FontFamily="Arial"
+                    FontSize="18" Margin="281,15,239,283">
+                    
                 </TextBlock>
+
+                <ComboBox
+                    Name="ComboBoxDifficulty"
+                    ItemsSource="">
+                    
+                </ComboBox>
+
             </Grid>
         </Grid>
     </Grid>
