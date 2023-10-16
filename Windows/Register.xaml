@@ -335,10 +335,6 @@
                 Visibility="Visible"
                 Focusable="False">
 
-                <Grid.Resources>
-                    <src: />
-                </Grid.Resources>
-
                 <!--#region Volume-->
                 
                 <TextBlock 
@@ -365,6 +361,19 @@
                     
                 </TextBlock>
 
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <src:comboboxitems Key="testsource"/>
+                    </StackPanel.Resources>
+                    <ComboBox
+                        Name="Test"
+                        ItemsSource="{StaticResource testsource}"
+                        Text="TEst">
+                        
+                    </ComboBox>
+                    
+                </StackPanel>
+                
                 <ComboBox
                     Name="ComboBoxDifficulty"
                     ItemsSource="">
