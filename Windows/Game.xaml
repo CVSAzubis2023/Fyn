@@ -129,15 +129,15 @@
     <Canvas Background="Transparent">
         <Grid Background="Transparent"
               Name="Waende" 
-              Height="829" 
-              Width="812" 
-              Canvas.Left="5"
+              Height="835" 
+              Width="790"
               Canvas.Top="115"
               Canvas.Bottom="5"
               HorizontalAlignment="Left" 
-              VerticalAlignment="Center">
+              VerticalAlignment="Center" Canvas.Left="5">
             <!--31 Reihen -->
             <Grid.RowDefinitions>
+                <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
@@ -173,7 +173,6 @@
 
             <!-- 28 Spalten-->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -310,8 +309,8 @@
 
         <Rectangle
             x:Name="GhostRed"
-            Height="32"
-            Width="32" 
+            Height="28"
+            Width="28" 
             Canvas.Left="81"
             Canvas.Top="330"
             RenderTransformOrigin="0.5,0.5">
@@ -330,8 +329,8 @@
 
         <Rectangle
             x:Name="GhostBlue"
-            Height="32"
-            Width="32"
+            Height="28"
+            Width="28"
             Canvas.Left="368" 
             Canvas.Top="680"
             RenderTransformOrigin="0.5,0.5">
@@ -342,8 +341,8 @@
 
         <Rectangle
             x:Name="GhostOrange"
-            Height="32"
-            Width="32" 
+            Height="28"
+            Width="28" 
             Canvas.Left="327" 
             Canvas.Top="260"
             RenderTransformOrigin="0.5,0.5">
@@ -354,8 +353,8 @@
 
         <Rectangle
             x:Name="GhostPurple"
-            Height="32"
-            Width="32" 
+            Height="28"
+            Width="28" 
             Canvas.Left="693" 
             Canvas.Top="555" 
             RenderTransformOrigin="0.5,0.5">

@@ -93,5 +93,10 @@ namespace Pac_Man
         {
             return speed;
         }
+
+        public void setOrientation(int x)
+        {
+            orrientation = x;
+        }
     }
 }

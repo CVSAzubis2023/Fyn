@@ -2,8 +2,8 @@
 {
     public class ghost
     {
-        private int posX;
-        private int posY;
+        private int posX = 0;
+        private int posY = 0;
 
         private int speed;
         private int state;

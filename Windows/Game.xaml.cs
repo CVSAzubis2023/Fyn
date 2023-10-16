@@ -31,7 +31,6 @@ namespace Pac_Man
             log.updateLog("Game page initialized");
         }
             
-        
         private void Game_OnKeyDown(object sender, KeyEventArgs e)
         {
             string keyString = null;
@@ -90,18 +89,22 @@ namespace Pac_Man
                 case "W":
                     PlayerPacMan.RenderTransform = new RotateTransform(90);
                     Canvas.SetTop(PlayerPacMan, (Canvas.GetTop(PlayerPacMan) - player1.getSpeed()));
+                    player1.setOrientation(0);
                     break;
                 case "A":
                     PlayerPacMan.RenderTransform = new RotateTransform(0);
                     Canvas.SetLeft(PlayerPacMan, Canvas.GetLeft(PlayerPacMan) - player1.getSpeed());
+                    player1.setOrientation(3);
                     break;
                 case "S":
                     PlayerPacMan.RenderTransform = new RotateTransform(270);
                     Canvas.SetTop(PlayerPacMan, Canvas.GetTop(PlayerPacMan) + player1.getSpeed());
+                    player1.setOrientation(2);
                     break;
                 case "D":
                     PlayerPacMan.RenderTransform = new RotateTransform(180);
                     Canvas.SetLeft(PlayerPacMan, Canvas.GetLeft(PlayerPacMan) + player1.getSpeed());
+                    player1.setOrientation(1);
                     break;
             }
 
