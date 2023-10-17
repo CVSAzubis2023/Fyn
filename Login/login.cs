@@ -17,6 +17,7 @@ namespace Pac_Man
 
         private string name;
         private string password;
+        private string salt;
         private int amount;
 
         public void conenctSQL()
@@ -38,8 +39,8 @@ namespace Pac_Man
 
         public void setPassword(string pw)
         {
-            password = hash.setPW(pw);
-            
+            getSalt();
+            password = hash.setPW(pw, salt);
         }
 
         public string getName()
@@ -60,6 +61,7 @@ namespace Pac_Man
             int rownumber2 = 0;
 
             getCount();
+            getSalt();
             Debug.WriteLine(amount);
 
             string[,] test = new string[amount,amount];
@@ -149,6 +151,33 @@ namespace Pac_Man
                         amount = rd.GetInt32(0);
                    }
                 }
+            }
+        }
+
+        public void getSalt()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    string sql = "SELECT salt FROM dbo.Table_2";
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            reader.Read();
+
+                            salt = reader.GetString(0);
+                        }
+                        connection.Close();
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error while connecting to SQL Server");
             }
         }
     }

@@ -6,6 +6,10 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Runtime.Remoting.Messaging;
+using System.Xaml;
+using System.Windows;
 
 namespace Pac_Man.Settings_etc
 {
@@ -15,9 +19,9 @@ namespace Pac_Man.Settings_etc
 
         private string name;
         private string password;
-        private int timesplayed;
-        private int lastscore;
-        private int highscore;
+        private string timesplayed;
+        private string lastscore;
+        private string highscore;
         private double playtime;
 
         private int amount;
@@ -34,17 +38,17 @@ namespace Pac_Man.Settings_etc
             return password;
         }
 
-        public int getTimesPlayed()
+        public string getTimesPlayed()
         {
             return timesplayed;
         }
 
-        public int getLastScore()
+        public string getLastScore()
         {
             return lastscore;
         }
 
-        public int getHighScore()
+        public string getHighScore()
         {
             return highscore;
         }
@@ -56,79 +60,89 @@ namespace Pac_Man.Settings_etc
 
         #endregion
 
-        private void setInfo()
+        #region Set
+
+        public void setName(string Name)
         {
-            connectSQL();
-
-            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-            {
-                string sqlCount = "SELECT COUNT(*) FROM dbo.Table_1";
-
-                using (SqlCommand cmad = new SqlCommand(sqlCount, connection))
-                {
-                    connection.Open();
-
-                    SqlDataReader rd = cmad.ExecuteReader();
-
-                    while (rd.Read())
-                    {
-                        amount = rd.GetInt32(0);
-                    }
-                }
-            }
-
-            try {
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    //Get Name
-                    string sqlname = "SELECT FROM";
-                    using (SqlCommand command = new SqlCommand(sqlname, connection)) 
-                    { 
-                        connection.Open();
-                    }
-
-                    //Get Password
-                    string sqlpassword = "SELECT FROM";
-                    using (SqlCommand command = new SqlCommand(sqlpassword, connection))
-                    {
-                        connection.Open();
-                    }
-
-                    //Get Timesplayed
-                    string sqltimesplayed = "SELECT FROM";
-                    using (SqlCommand command = new SqlCommand(sqltimesplayed, connection))
-                    {
-                        connection.Open();
-                    }
-
-                    //Get Lastscore
-                    string sqllastscore = "SELECT FROM";
-                    using (SqlCommand command = new SqlCommand(sqllastscore, connection))
-                    {
-                        connection.Open();
-                    }
-
-                    //Get Playtime
-                    string sqlplaytime = "SELECT FROM";
-                    using (SqlCommand command = new SqlCommand(sqlplaytime, connection))
-                    {
-                        connection.Open();
-                    }
-
-                }
-            }
-            catch
-            {
-
-            }
+            name = Name;
         }
 
-        private void connectSQL()
+        public void setPassword(string Password)
+        {
+            password = Password;
+        }
+
+        #endregion
+
+        public void connectSQL()
         {
             builder.DataSource = "FDEU-131\\SQLEXPRESS";
             builder.UserID = "sa";
             builder.Password = "applesauce/2";
             builder.InitialCatalog = "Test";
         }
+
+        public void setInfo()
+        {
+            try {
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    //Get Password
+                    string sqlpassword = "SELECT Password FROM dbo.Table_1 WHERE Name = " + name;
+                    using (SqlCommand command = new SqlCommand(sqlpassword, connection))
+                    {
+                        connection.Open();
+                        SqlDataReader rd = command.ExecuteReader();
+
+                        rd.Read();
+                        password = rd.GetString(0);
+                        connection.Close();
+
+                    }
+
+                    //Get Timesplayed
+                    string sqltimesplayed = "SELECT Timesplayed FROM dbo.Table_1 WHERE Name = " + name;
+                    using (SqlCommand command = new SqlCommand(sqltimesplayed, connection))
+                    {
+                        connection.Open();
+                        SqlDataReader rd = command.ExecuteReader();
+
+                        rd.Read();
+                        timesplayed = rd.GetString(0);
+                        connection.Close();
+                    }
+
+                    //Get Lastscore
+                    string sqllastscore = "SELECT Score FROM dbo.Table_1 WHERE Name = " + name;
+                    using (SqlCommand command = new SqlCommand(sqllastscore, connection))
+                    {
+                        connection.Open();
+                        SqlDataReader rd = command.ExecuteReader();
+
+                        rd.Read();
+                        lastscore = rd.GetString(0);
+                        connection.Close();
+                    }
+
+                    //Get Playtime
+                    string sqlplaytime = "SELECT Playtime FROM dbo.Table_1 WHERE Name = " + name;
+                    using (SqlCommand command = new SqlCommand(sqlplaytime, connection))
+                    {
+                        connection.Open();
+                        SqlDataReader rd = command.ExecuteReader();
+
+                        rd.Read();
+                        playtime = rd.GetDouble(0);
+                        connection.Close();
+                    }
+
+                }
+            }
+            
+            catch
+            {
+                MessageBox.Show("Error while getting account information");
+            }
+        } 
     }
 }

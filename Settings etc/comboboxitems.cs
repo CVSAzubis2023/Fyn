@@ -8,13 +8,26 @@ using System.Threading.Tasks;
 
 namespace Pac_Man.Settings_etc
 {
-    class comboboxitems : ObservableCollection<string>
+    public class Viewmodel 
     {
-        public comboboxitems() 
+        public ObservableCollection<string> CmbContent {  get; private set; }
+        public ObservableCollection<string> Savings { get; private set; }
+
+        public Viewmodel()
         {
-            Add("Blub");
-            Add("Blep");
-            Add("Hallo");
+            CmbContent = new ObservableCollection<string>
+            {
+                "Hallo",
+                "Blub",
+                "Blip",
+                "Blep"
+            };
+
+            Savings = new ObservableCollection<string>
+            {
+                "Save",
+                "Dont Save"
+            };
         }
     }
 }

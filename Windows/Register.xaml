@@ -68,7 +68,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid >
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120*" />
             <ColumnDefinition Width="680*" />
@@ -76,7 +76,7 @@
 
         <Grid 
             Grid.Column="0">
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
@@ -113,11 +113,11 @@
                 Name="ButtonRegister"
                 Click="ButtonRegister_Click"
                 Background="Gray"
-                Content="Register"
+                Content="Website"
                 FontFamily="Arial"
                 FontSize="17"
                 Foreground="Black">
-                
+
             </Button>
 
             <Button
@@ -143,7 +143,7 @@
             <Grid
                 Grid.Column="0"
                 Background="Gray">
-                
+
                 <TextBlock
                     Name="Headline"
                     Text="Your Account"
@@ -165,7 +165,7 @@
                 Grid.Column="1" 
                 Background="Gray" 
                 Grid.Row="1"
-                Visibility="Hidden">
+                Visibility="Visible">
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -180,7 +180,7 @@
                     </Grid.RowDefinitions>
 
                     <!-- Name -->
-                    
+
                     <TextBlock
                         Name="YourNameLabel"
                         Grid.Row="0"
@@ -189,8 +189,9 @@
                         FontSize="20"
                         FontFamily="Arial"
                         Height="Auto"
-                        Text="Your Name">
-                        
+                        Text="Your Name" 
+                        Margin="0,0,0,85">
+
                     </TextBlock>
 
                     <TextBlock
@@ -200,12 +201,13 @@
                         TextAlignment="Center"
                         FontSize="20"
                         FontFamily="Arial"
-                        Height="Auto">
+                        Height="Auto" 
+                        Margin="0,85,0,0" >
 
                     </TextBlock>
-                    
+
                     <!-- Password -->
-                        
+
                     <TextBlock
                         Name="YourPasswordLabel"
                         Grid.Row="0"
@@ -215,13 +217,20 @@
                         FontFamily="Arial"
                         Height="Auto"
                         Text="Your Password">
-                        
+
                     </TextBlock>
 
-                    <TextBlock>
-                        
+                    <TextBlock
+                        Name="YourPassword"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        TextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Arial"
+                        Height="Auto">
+
                     </TextBlock>
-                    
+
                     <!-- Timesplayed -->
 
                     <TextBlock
@@ -233,7 +242,7 @@
                         FontFamily="Arial"
                         Height="Auto"
                         Text="Times Played">
-                        
+
                     </TextBlock>
 
                     <TextBlock
@@ -244,9 +253,9 @@
                         FontSize="20"
                         FontFamily="Arial"
                         Height="Auto">
-                        
+
                     </TextBlock>
-                    
+
                     <!-- Latest Score -->
 
                     <TextBlock
@@ -258,7 +267,7 @@
                         FontFamily="Arial"
                         Height="Auto"
                         Text="Your Latest Score">
-                        
+
                     </TextBlock>
 
                     <TextBlock
@@ -269,9 +278,9 @@
                         FontSize="20"
                         FontFamily="Arial"
                         Height="Auto">
-                        
+
                     </TextBlock>
-                    
+
                     <!-- Highscore -->
 
                     <TextBlock
@@ -283,7 +292,7 @@
                         FontFamily="Arial"
                         Height="Auto"
                         Text="Your Highscore">
-                        
+
                     </TextBlock>
 
                     <TextBlock
@@ -294,9 +303,9 @@
                         FontSize="20"
                         FontFamily="Arial"
                         Height="Auto">
-                        
+
                     </TextBlock>
-                    
+
                     <!-- Playtime -->
 
                     <TextBlock
@@ -308,7 +317,7 @@
                         FontFamily="Arial"
                         Height="Auto"
                         Text="Hours Played">
-                        
+
                     </TextBlock>
 
                     <TextBlock
@@ -319,12 +328,12 @@
                         FontSize="20"
                         FontFamily="Arial"
                         Height="Auto">
-                        
-                        
+
+
                     </TextBlock>
-                    
+
                 </Grid>
-                
+
             </Grid>
 
             <Grid
@@ -332,54 +341,91 @@
                 Grid.Row="1"
                 Background="Gray"
                 Name="InfoSettings"
-                Visibility="Visible"
+                Visibility="Hidden"
                 Focusable="False">
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
                 <!--#region Volume-->
-                
-                <TextBlock 
-                    Margin="28,15 ,449,289"
+
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
                     Text="Volume"
                     TextAlignment="Center"
                     FontFamily="Arial"
-                    FontSize="18">
-                    
-                </TextBlock>
-                
-                <Slider Margin="32,36,454,269"
-                        Name="VolumeSlider"
-                        ValueChanged="Slider_ValueChanged">
+                    FontSize="18" 
+                    Margin="10,10,10,120"/>
 
-                </Slider>
+                <Slider
+                    Grid.Column="0"
+                    Name="VolumeSlider"
+                    ValueChanged="Slider_ValueChanged" 
+                    Margin="10,60,10,70"/>
                 <!--#endregion-->
 
+                <!--#region Difficulty-->
+                
                 <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="1"
                     Text="Standart Difficulty"
                     TextAlignment="Center"
                     FontFamily="Arial"
-                    FontSize="18" Margin="281,15,239,283">
+                    FontSize="18"
+                    Margin="10,10,10,120"
+                    Background="Transparent">
+
+                </TextBlock>
+
+                <ComboBox
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    x:Name="CmbBox"
+                    Text="Test"
+                    ItemsSource="{Binding CmbContent}" 
+                    Margin="10,60,10,70"
+                    Background="Transparent"
+                    SelectionChanged="CmbBox_SelectionChanged"/>
+
+                <!--#endregion-->
+
+                <!--#region Saving-->
+                
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Text="Save the Scores?"
+                    TextAlignment="Center"
+                    FontFamily="Arial"
+                    FontSize="18"
+                    Margin="10,10,10,120">
                     
                 </TextBlock>
 
-                <StackPanel>
-                    <StackPanel.Resources>
-                        <src:comboboxitems Key="testsource"/>
-                    </StackPanel.Resources>
-                    <ComboBox
-                        Name="Test"
-                        ItemsSource="{StaticResource testsource}"
-                        Text="TEst">
-                        
-                    </ComboBox>
-                    
-                </StackPanel>
-                
                 <ComboBox
-                    Name="ComboBoxDifficulty"
-                    ItemsSource="">
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Name="CmbBoxSaving"
+                    ItemsSource="{Binding Savings}"
+                    Margin="10,60,10,70"
+                    Background="Transparent"
+                    SelectionChanged="CmbBoxSaving_SelectionChanged">
                     
                 </ComboBox>
-
+                
+                
+                <!--#endregion-->
+                
             </Grid>
         </Grid>
     </Grid>

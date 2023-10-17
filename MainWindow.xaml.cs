@@ -17,7 +17,6 @@ namespace Pac_Man
     {
         private login login = new login();
         private log log = new log();
-
         
         public MainWindow()
         {
@@ -66,9 +65,15 @@ namespace Pac_Man
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            Register register = new Register();
-            register.Show();
-            this.Close();
+            login.setPassword(PwBox.Password.ToString());
+            login.setName(TextBoxName.Text.ToString());
+            if (login.testCredentials() == true)
+            {
+                Register register = new Register();
+                register.setDetails(TextBoxName.Text.ToString(), PwBox.Password.ToString());
+                register.Show();
+                this.Close();
+            }   
         }
 
         private void NoLoginPlay_Click(object sender, RoutedEventArgs e)

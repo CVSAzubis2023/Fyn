@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Pac_Man.Settings_etc;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +23,31 @@ namespace Pac_Man.Windows
     public partial class Register : Window
     {
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+        myaccount myacc = new myaccount();
+
+        private string name;
+        private string password;
 
         public Register()
         {
             InitializeComponent();
+
+            DataContext = new Viewmodel();
+
+            myacc.setInfo();
+            myacc.connectSQL();
+
+            YourName.Text = myacc.getName();
+            YourPassword.Text = myacc.getPassword();
+            TimesPlayed.Text = myacc.getTimesPlayed();
+            YourLatestScore.Text = myacc.getLastScore();
+            YourHighscore.Text = myacc.getHighScore();
+        }
+
+        public void setDetails(string nameInput, string passwordInput)
+        {
+            name = nameInput;
+            password = passwordInput;
         }
 
         void connectSQL()
@@ -79,7 +102,43 @@ namespace Pac_Man.Windows
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            
+            double value;
+            value = VolumeSlider.Value;
+            Debug.WriteLine(value);
+        }
+
+        private void CmbBoxSaving_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (CmbBoxSaving.SelectedItem)
+            {
+                case "Save":
+                    Debug.WriteLine("Save");
+                    break;
+                case "Dont Save":
+                    Debug.WriteLine("Dont Save");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void CmbBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (CmbBox.SelectedItem)
+            {
+                case "Hallo":
+                    Debug.WriteLine("Hallo");
+                    break;
+                case "Blub":
+                    Debug.WriteLine("Blub");
+                    break;
+                case "Blip":
+                    Debug.WriteLine("Blip");
+                    break;
+                case "Blep":
+                    Debug.WriteLine("Blep");
+                    break;
+            }
         }
     }
 }
