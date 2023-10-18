@@ -35,7 +35,6 @@ namespace Pac_Man.Windows
             DataContext = new Viewmodel();
 
             myacc.setInfo();
-            myacc.connectSQL();
 
             YourName.Text = myacc.getName();
             YourPassword.Text = myacc.getPassword();

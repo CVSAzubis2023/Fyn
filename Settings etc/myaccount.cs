@@ -84,6 +84,8 @@ namespace Pac_Man.Settings_etc
 
         public void setInfo()
         {
+            connectSQL();
+
             try {
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
@@ -92,12 +94,12 @@ namespace Pac_Man.Settings_etc
                     using (SqlCommand command = new SqlCommand(sqlpassword, connection))
                     {
                         connection.Open();
-                        SqlDataReader rd = command.ExecuteReader();
-
-                        rd.Read();
-                        password = rd.GetString(0);
+                        using (SqlDataReader rd = command.ExecuteReader())
+                        {
+                            rd.Read();
+                            password = rd.GetString(0); 
+                        }
                         connection.Close();
-
                     }
 
                     //Get Timesplayed
