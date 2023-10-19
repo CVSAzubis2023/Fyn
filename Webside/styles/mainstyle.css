@@ -62,3 +62,25 @@ table{
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.centerdiv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.contentright{
+    flex-grow: 1;
+    order: 3;
+}
+
+.contentleft{
+    flex-grow: 3;
+    order: 1;
+}
+
+.contentcenter{
+    flex-grow: 10;
+    order:2;
+}
