@@ -40,6 +40,5 @@ namespace Pac_Man.Login
 
             return sb.ToString();
         }
-
     }
 }

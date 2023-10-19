@@ -92,7 +92,6 @@ namespace Pac_Man
                         connection.Close();
                     }
 
-
                     sql = "SELECT Password FROM dbo.Table_1";
                     Debug.WriteLine(sql);
 

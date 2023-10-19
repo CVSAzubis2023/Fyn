@@ -91,13 +91,14 @@ namespace Pac_Man.Settings_etc
                 {
                     //Get Password
                     string sqlpassword = "SELECT Password FROM dbo.Table_1 WHERE Name = " + name;
+
                     using (SqlCommand command = new SqlCommand(sqlpassword, connection))
                     {
                         connection.Open();
                         using (SqlDataReader rd = command.ExecuteReader())
                         {
                             rd.Read();
-                            password = rd.GetString(0); 
+                            password = rd.GetString(0);
                         }
                         connection.Close();
                     }
@@ -137,7 +138,6 @@ namespace Pac_Man.Settings_etc
                         playtime = rd.GetDouble(0);
                         connection.Close();
                     }
-
                 }
             }
             
