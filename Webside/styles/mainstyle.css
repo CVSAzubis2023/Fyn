@@ -37,6 +37,14 @@ h3 {
     text-align: center;
 }
 
+h4{
+    color: orange;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    align-content: center;
+    text-align: center;
+}
+
 p{
     color:deeppink;
 }
@@ -73,14 +81,25 @@ table{
 .contentright{
     flex-grow: 1;
     order: 3;
+    background-color: yellow;
 }
 
 .contentleft{
     flex-grow: 3;
     order: 1;
+    background-color: crimson;
 }
 
 .contentcenter{
     flex-grow: 10;
     order:2;
+    background-color: blue;
+}
+
+.footerdivs{
+    background-color: black;
+}
+
+.footerlinks{
+    background-color: pink;
 }
