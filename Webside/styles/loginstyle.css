@@ -1,0 +1,11 @@
+* {
+    background-color: gray;
+    font-size: 12;
+    font-family: Arial;
+}
+
+.lightmode {
+    background-color: #ddd;
+    color:black;
+}
+
