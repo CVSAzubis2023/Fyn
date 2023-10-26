@@ -82,7 +82,7 @@ namespace Pac_Man.Settings_etc
             builder.InitialCatalog = "Test";
         }
 
-        public void setInfo()
+        public bool setInfo()
         {
             connectSQL();
 
@@ -95,11 +95,12 @@ namespace Pac_Man.Settings_etc
                     using (SqlCommand command = new SqlCommand(sqlpassword, connection))
                     {
                         connection.Open();
-                        using (SqlDataReader rd = command.ExecuteReader())
-                        {
-                            rd.Read();
-                            password = rd.GetString(0);
-                        }
+
+                        SqlDataReader rd = command.ExecuteReader();
+                            
+                        rd.Read();
+                        password = rd.GetString(0);
+
                         connection.Close();
                     }
 
@@ -143,7 +144,22 @@ namespace Pac_Man.Settings_etc
             
             catch
             {
-                MessageBox.Show("Error while getting account information");
+                MessageBoxButton buttons = MessageBoxButton.YesNoCancel;
+
+                string message = "Error while logging in, do you want to register?";
+                string caption = "Error while logging in";
+
+                var result = MessageBox.Show(message, caption, buttons);
+
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        return true;
+                    case MessageBoxResult.No:
+                        return false;
+                    case MessageBoxResult.Cancel: 
+                        break;
+                }
             }
         } 
     }

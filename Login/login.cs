@@ -149,6 +149,8 @@ namespace Pac_Man
                    {
                         amount = rd.GetInt32(0);
                    }
+
+                   connection.Close();
                 }
             }
         }

@@ -34,8 +34,19 @@ namespace Pac_Man.Windows
 
             DataContext = new Viewmodel();
 
-            myacc.setInfo();
+            getInfo();
+        }
 
+        public void getInfo()
+        {
+            if(myacc.setInfo() == true)
+            {
+                setInfo();
+            }
+        }
+
+        public void setInfo() 
+        {
             YourName.Text = myacc.getName();
             YourPassword.Text = myacc.getPassword();
             TimesPlayed.Text = myacc.getTimesPlayed();
