@@ -128,7 +128,7 @@ namespace Pac_Man
             }
             catch
             {
-                MessageBox.Show("Coudnt connect to SQL Server, starting without connection!");
+                MessageBox.Show("Couldnt connect to SQL Server, starting without connection!");
                 return true;
             }
         }

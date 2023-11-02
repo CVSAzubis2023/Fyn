@@ -71,8 +71,39 @@ namespace Pac_Man
             {
                 Register register = new Register();
                 register.setDetails(TextBoxName.Text.ToString(), PwBox.Password.ToString());
-                register.Show();
-                this.Close();
+                if (register.getInfo() == true)
+                {
+                    register.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBoxButton buttons = MessageBoxButton.YesNo;
+
+                    string message = "Error while logging in, do you want to register?";
+                    string caption = "Error while logging in";
+
+                    var result = MessageBox.Show(message, caption, buttons);
+
+                    switch (result)
+                    {
+                        case MessageBoxResult.Yes:
+                            string browser = "https://github.com/CVSAzubis2023/Fyn";
+                            try
+                            {
+                                System.Diagnostics.Process.Start(browser);
+                                register.Close();
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Coudnt start a browser!");
+                            }
+                            break;   
+                        case MessageBoxResult.No:
+                            register.Close();
+                            break;
+                    }
+                }
             }   
         }
 

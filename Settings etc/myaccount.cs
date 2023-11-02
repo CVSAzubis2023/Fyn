@@ -17,12 +17,15 @@ namespace Pac_Man.Settings_etc
     {
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
-        private string name;
-        private string password;
-        private string timesplayed;
-        private string lastscore;
-        private string highscore;
-        private double playtime;
+        private string nameInput;
+        private string passwordInput;
+
+        private string name = null;
+        private string password = null;
+        private string timesplayed = null;
+        private string lastscore = null;
+        private string highscore = null;
+        private double playtime = -1;
 
         private int amount;
 
@@ -64,12 +67,12 @@ namespace Pac_Man.Settings_etc
 
         public void setName(string Name)
         {
-            name = Name;
+            nameInput = Name;
         }
 
         public void setPassword(string Password)
         {
-            password = Password;
+            passwordInput = Password;
         }
 
         #endregion
@@ -84,15 +87,15 @@ namespace Pac_Man.Settings_etc
 
         public bool setInfo()
         {
-            connectSQL();
+            Debug.WriteLine("Getting Info");
 
             try {
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     //Get Password
-                    string sqlpassword = "SELECT Password FROM dbo.Table_1 WHERE Name = " + name;
+                    string sqlpassword = "SELECT Password FROM dbo.Table_1 WHERE Name = '" + name + "'";
 
-                    using (SqlCommand command = new SqlCommand(sqlpassword, connection))
+                    /*using (SqlCommand command = new SqlCommand(sqlpassword, connection))
                     {
                         connection.Open();
 
@@ -101,11 +104,15 @@ namespace Pac_Man.Settings_etc
                         rd.Read();
                         password = rd.GetString(0);
 
+                        Debug.WriteLine("Passwort: " + password);
+
                         connection.Close();
                     }
+                    */
 
                     //Get Timesplayed
-                    string sqltimesplayed = "SELECT Timesplayed FROM dbo.Table_1 WHERE Name = " + name;
+                    string sqltimesplayed = "SELECT Timesplayed FROM dbo.Table_1 WHERE Name = '" + name + "'";
+
                     using (SqlCommand command = new SqlCommand(sqltimesplayed, connection))
                     {
                         connection.Open();
@@ -113,11 +120,14 @@ namespace Pac_Man.Settings_etc
 
                         rd.Read();
                         timesplayed = rd.GetString(0);
+
+                        Debug.WriteLine("Timesplayed: " + timesplayed);
+
                         connection.Close();
                     }
 
                     //Get Lastscore
-                    string sqllastscore = "SELECT Score FROM dbo.Table_1 WHERE Name = " + name;
+                    string sqllastscore = "SELECT Score FROM dbo.Table_1 WHERE Name = '" + name + "'";
                     using (SqlCommand command = new SqlCommand(sqllastscore, connection))
                     {
                         connection.Open();
@@ -125,11 +135,14 @@ namespace Pac_Man.Settings_etc
 
                         rd.Read();
                         lastscore = rd.GetString(0);
+
+                        Debug.WriteLine("Last Score: " + lastscore);
+
                         connection.Close();
                     }
 
                     //Get Playtime
-                    string sqlplaytime = "SELECT Playtime FROM dbo.Table_1 WHERE Name = " + name;
+                    string sqlplaytime = "SELECT Playtime FROM dbo.Table_1 WHERE Name = '" + name + "'";
                     using (SqlCommand command = new SqlCommand(sqlplaytime, connection))
                     {
                         connection.Open();
@@ -137,29 +150,26 @@ namespace Pac_Man.Settings_etc
 
                         rd.Read();
                         playtime = rd.GetDouble(0);
+
+                        Debug.WriteLine("Playtime: " + playtime);
+
                         connection.Close();
+                    }
+
+                    if (name != null && password != null && timesplayed != null && lastscore != null && highscore != null && playtime != -1)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
                     }
                 }
             }
             
             catch
             {
-                MessageBoxButton buttons = MessageBoxButton.YesNoCancel;
-
-                string message = "Error while logging in, do you want to register?";
-                string caption = "Error while logging in";
-
-                var result = MessageBox.Show(message, caption, buttons);
-
-                switch (result)
-                {
-                    case MessageBoxResult.Yes:
-                        return true;
-                    case MessageBoxResult.No:
-                        return false;
-                    case MessageBoxResult.Cancel: 
-                        break;
-                }
+                return false;
             }
         } 
     }

@@ -33,15 +33,22 @@ namespace Pac_Man.Windows
             InitializeComponent();
 
             DataContext = new Viewmodel();
-
-            getInfo();
         }
 
-        public void getInfo()
+        public bool getInfo()
         {
+            myacc.setName(name);
+            myacc.setPassword(password);
+
+            myacc.connectSQL();
+
             if(myacc.setInfo() == true)
             {
                 setInfo();
+                return true;
+            }
+            else {
+                return false;
             }
         }
 
