@@ -38,16 +38,19 @@ namespace Pac_Man.Windows
         public bool getInfo()
         {
             myacc.setName(name);
+            Debug.WriteLine(name);
             myacc.setPassword(password);
 
             myacc.connectSQL();
 
             if(myacc.setInfo() == true)
             {
+                Debug.WriteLine("Info setzten");
                 setInfo();
                 return true;
             }
-            else {
+            else 
+            {
                 return false;
             }
         }
@@ -59,20 +62,13 @@ namespace Pac_Man.Windows
             TimesPlayed.Text = myacc.getTimesPlayed();
             YourLatestScore.Text = myacc.getLastScore();
             YourHighscore.Text = myacc.getHighScore();
+            OverallPlayTime.Text = myacc.getPlayTime();
         }
 
         public void setDetails(string nameInput, string passwordInput)
         {
             name = nameInput;
             password = passwordInput;
-        }
-
-        void connectSQL()
-        {
-            builder.ConnectionString = "FDEU-131\\SQLEXPRESS";
-            builder.UserID = "sa";
-            builder.Password = "applesauce/2";
-            builder.InitialCatalog = "Test";
         }
 
         private void ButtonYourAccount_Click(object sender, RoutedEventArgs e)

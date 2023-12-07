@@ -15,6 +15,7 @@ namespace Pac_Man
         gamesetup gamesetup = new gamesetup();
         gamefunctions game = new gamefunctions();
         log log = new log();
+        
 
         player player1 = new player();
 
@@ -23,14 +24,33 @@ namespace Pac_Man
         ghost ghostOrange = new ghost();
         ghost ghostPurple = new ghost();
 
+        #region Player Info
+
         private string playerName;
+        private int score;
+        private int level;
+        private int moves;
+        private int timesplayed;
+        private int highscore;
+        private double playtime;
+
+        #endregion
+
+        #region Constructors
 
         public Game()
         {
             InitializeComponent();
             log.updateLog("Game page initialized");
         }
-            
+
+        public Game(string name)
+        {
+            playerName = name;
+        }
+
+        #endregion
+
         private void Game_OnKeyDown(object sender, KeyEventArgs e)
         {
             string keyString = null;
@@ -250,16 +270,15 @@ namespace Pac_Man
             MessageBox.Show("WIP");
         }
 
-        public void setPlayer(string name)
-        {
-            playerName = name;
-        }
-
         public void gameend()
         {
-            savingscores savingscores = new savingscores();
-            savingscores.setPlayer(playerName);
-             
+            savingscores ssc = new savingscores(playerName, score, level, moves, timesplayed, highscore, playtime);
+
+            ssc.SQLSetup();
+            if (ssc.saveScores())
+            {
+
+            }
         }
     }
 }

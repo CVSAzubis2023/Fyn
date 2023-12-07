@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Data.SqlTypes;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace Pac_Man.Login
 {
@@ -14,45 +15,34 @@ namespace Pac_Man.Login
     {
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
+        private string name;
+
         private int score;
         private int level;
         private int moves;
+        private int timesplayed;
+        private int highscore;
+        private double playtime;
 
         private string sql = "FDEU-131\\SQLEXPRESS";
         private string user = "sa";
         private string password = "applesauce/2";
         private string database = "Test";
 
-        private string player;
-        private int line;
+        #region Constructor
 
-        private int amount;
-
-
-        public void setScore(int x)
+        public savingscores(string name, int score, int level, int moves, int timesplayed, int highscore ,double playtime)
         {
-            score = x;
+            this.name = name;
+            this.score = score;
+            this.level = level;
+            this.moves = moves;
+            this.timesplayed = timesplayed;
+            this.highscore = highscore;
+            this.playtime = playtime;
         }
 
-        public void setLevel(int x) 
-        { 
-            level = x;
-        }
-
-        public void setMoves(int x)
-        {
-            moves = x;
-        }
-        
-        public void setLine(int x)
-        {
-            line = x;
-        }
-
-        public void setPlayer(string Name)
-        {
-            player = Name;
-        }
+        #endregion
 
         public void SQLSetup()
         {
@@ -62,74 +52,38 @@ namespace Pac_Man.Login
             builder.InitialCatalog = database;
         }
 
-        public void connectSQL()
+        public bool saveScores()
         {
-
             try
             {
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
-                    string commandSQL = "SELECT Name FROM dbo.TABLE_1";
-                    using (SqlCommand command = new SqlCommand(commandSQL, connection))
+                    string setNewLatestScore = "INSERT INTO dbo.Table_1 (Score, Highscore, Timesplayed, Playtime) VALUES (@score, @highscore, @timesplayed, @playtime) WHERE Name = '" + name + "'";
+
+                    using (SqlCommand cmd = new SqlCommand(setNewLatestScore, connection))
                     {
+                        cmd.Parameters.Add("@score", System.Data.SqlDbType.Int).Value = score;
+                        cmd.Parameters.Add("@timesplayed", System.Data.SqlDbType.Int).Value = (timesplayed+1);
+                        cmd.Parameters.Add("@playtime", System.Data.SqlDbType.Float).Value = playtime;
+                        if (score > highscore)
+                        {
+                            cmd.Parameters.Add("@highscore", System.Data.SqlDbType.Int).Value = score;
+                        }
+
                         connection.Open();
-                        using (SqlDataReader rd = command.ExecuteReader())
-                        {
-                            for (int i = 0;i < amount; i++)
-                            {
-                                rd.Read();
-                                if (player == rd.GetString(0))
-                                {
-                                    line = i;
-                                }
-                            }
 
-                            connection.Close();
-                        }
+                        cmd.ExecuteNonQuery();
 
-                        commandSQL = "";
-                        using (SqlCommand command2 = new SqlCommand(commandSQL, connection))
-                        {
-                            connection.Open();
-
-
-
-
-
-                        }
+                        connection.Close();
                     }
                 }
+
+                return true;
             }
             catch
             {
-
+                return false;
             }
-        }
-        public void getCount()
-        {
-            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-            {
-                string sqlCount = "SELECT COUNT(*) FROM dbo.Table_1";
-
-                using (SqlCommand cmad = new SqlCommand(sqlCount, connection))
-                {
-                    connection.Open();
-
-                    SqlDataReader rd = cmad.ExecuteReader();
-
-                    while (rd.Read())
-                    {
-                        amount = rd.GetInt32(0);
-                    }
-
-                    connection.Close();
-                }
-            }
-        }
-
-        private void saveScores()
-        {
-
         }
     }
 }

@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Dokumentation\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="logs\" />

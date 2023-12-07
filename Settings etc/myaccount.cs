@@ -17,14 +17,11 @@ namespace Pac_Man.Settings_etc
     {
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
-        private string nameInput;
-        private string passwordInput;
-
-        private string name = null;
-        private string password = null;
-        private string timesplayed = null;
-        private string lastscore = null;
-        private string highscore = null;
+        private string name;
+        private string password;
+        private int timesplayed = -1;
+        private int lastscore = -1;
+        private int highscore = -1;
         private double playtime = -1;
 
         private int amount;
@@ -43,22 +40,22 @@ namespace Pac_Man.Settings_etc
 
         public string getTimesPlayed()
         {
-            return timesplayed;
+            return timesplayed.ToString();
         }
 
         public string getLastScore()
         {
-            return lastscore;
+            return lastscore.ToString(); 
         }
 
         public string getHighScore()
         {
-            return highscore;
+            return highscore.ToString();
         }
 
-        public double getPlayTime()
+        public string getPlayTime()
         {
-            return playtime;
+            return playtime.ToString();
         }
 
         #endregion
@@ -67,12 +64,12 @@ namespace Pac_Man.Settings_etc
 
         public void setName(string Name)
         {
-            nameInput = Name;
+            name = Name;
         }
 
         public void setPassword(string Password)
         {
-            passwordInput = Password;
+            password = Password;
         }
 
         #endregion
@@ -88,6 +85,7 @@ namespace Pac_Man.Settings_etc
         public bool setInfo()
         {
             Debug.WriteLine("Getting Info");
+            Debug.WriteLine(name);
 
             try {
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
@@ -95,20 +93,21 @@ namespace Pac_Man.Settings_etc
                     //Get Password
                     string sqlpassword = "SELECT Password FROM dbo.Table_1 WHERE Name = '" + name + "'";
 
-                    /*using (SqlCommand command = new SqlCommand(sqlpassword, connection))
+                    using (SqlCommand command = new SqlCommand(sqlpassword, connection))
                     {
                         connection.Open();
 
-                        SqlDataReader rd = command.ExecuteReader();
-                            
-                        rd.Read();
-                        password = rd.GetString(0);
+                        using (SqlDataReader rd = command.ExecuteReader())
+                        {
+                            rd.Read();
+                            password = rd.GetString(0);
 
-                        Debug.WriteLine("Passwort: " + password);
+                            Debug.WriteLine("Passwort: " + password);
+                        }
 
                         connection.Close();
                     }
-                    */
+                    
 
                     //Get Timesplayed
                     string sqltimesplayed = "SELECT Timesplayed FROM dbo.Table_1 WHERE Name = '" + name + "'";
@@ -116,12 +115,14 @@ namespace Pac_Man.Settings_etc
                     using (SqlCommand command = new SqlCommand(sqltimesplayed, connection))
                     {
                         connection.Open();
-                        SqlDataReader rd = command.ExecuteReader();
 
-                        rd.Read();
-                        timesplayed = rd.GetString(0);
+                        using (SqlDataReader rd = command.ExecuteReader())
+                        {
+                            rd.Read();
+                            timesplayed = rd.GetInt32(0);
 
-                        Debug.WriteLine("Timesplayed: " + timesplayed);
+                            Debug.WriteLine("Timesplayed: " + timesplayed);
+                        }
 
                         connection.Close();
                     }
@@ -131,12 +132,14 @@ namespace Pac_Man.Settings_etc
                     using (SqlCommand command = new SqlCommand(sqllastscore, connection))
                     {
                         connection.Open();
-                        SqlDataReader rd = command.ExecuteReader();
 
-                        rd.Read();
-                        lastscore = rd.GetString(0);
+                        using (SqlDataReader rd = command.ExecuteReader())
+                        {
+                            rd.Read();
+                            lastscore = rd.GetInt32(0);
 
-                        Debug.WriteLine("Last Score: " + lastscore);
+                            Debug.WriteLine("Last Score: " + lastscore);
+                        }
 
                         connection.Close();
                     }
@@ -146,24 +149,19 @@ namespace Pac_Man.Settings_etc
                     using (SqlCommand command = new SqlCommand(sqlplaytime, connection))
                     {
                         connection.Open();
-                        SqlDataReader rd = command.ExecuteReader();
 
-                        rd.Read();
-                        playtime = rd.GetDouble(0);
+                        using (SqlDataReader rd = command.ExecuteReader())
+                        {
+                            rd.Read();
+                            playtime = rd.GetDouble(0);
 
-                        Debug.WriteLine("Playtime: " + playtime);
+                            Debug.WriteLine("Playtime: " + playtime);
+                        }
 
                         connection.Close();
                     }
 
-                    if (name != null && password != null && timesplayed != null && lastscore != null && highscore != null && playtime != -1)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return true;
                 }
             }
             

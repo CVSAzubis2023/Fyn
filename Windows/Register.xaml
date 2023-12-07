@@ -216,7 +216,8 @@
                         FontSize="20"
                         FontFamily="Arial"
                         Height="Auto"
-                        Text="Your Password">
+                        Text="Your Password"
+                        Margin="0,0,0,85">
 
                     </TextBlock>
 
@@ -227,7 +228,8 @@
                         TextAlignment="Center"
                         FontSize="20"
                         FontFamily="Arial"
-                        Height="Auto">
+                        Height="Auto" 
+                        Margin="0,85,0,0">
 
                     </TextBlock>
 
@@ -241,7 +243,8 @@
                         FontSize="20"
                         FontFamily="Arial"
                         Height="Auto"
-                        Text="Times Played">
+                        Text="Times Played"
+                        Margin="0,0,0,85">
 
                     </TextBlock>
 
@@ -252,7 +255,8 @@
                         TextAlignment="Center"
                         FontSize="20"
                         FontFamily="Arial"
-                        Height="Auto">
+                        Height="Auto"
+                        Margin="0,85,0,0">
 
                     </TextBlock>
 
@@ -266,7 +270,8 @@
                         FontSize="20"
                         FontFamily="Arial"
                         Height="Auto"
-                        Text="Your Latest Score">
+                        Text="Your Latest Score"
+                        Margin="0,0,0,85">
 
                     </TextBlock>
 
@@ -277,7 +282,8 @@
                         TextAlignment="Center"
                         FontSize="20"
                         FontFamily="Arial"
-                        Height="Auto">
+                        Height="Auto"
+                        Margin="0,85,0,0">
 
                     </TextBlock>
 
@@ -291,7 +297,8 @@
                         FontSize="20"
                         FontFamily="Arial"
                         Height="Auto"
-                        Text="Your Highscore">
+                        Text="Your Highscore"
+                        Margin="0,0,0,85">
 
                     </TextBlock>
 
@@ -302,7 +309,8 @@
                         TextAlignment="Center"
                         FontSize="20"
                         FontFamily="Arial"
-                        Height="Auto">
+                        Height="Auto"
+                        Margin="0,85,0,0">
 
                     </TextBlock>
 
@@ -316,7 +324,8 @@
                         FontSize="20"
                         FontFamily="Arial"
                         Height="Auto"
-                        Text="Hours Played">
+                        Text="Hours Played"
+                        Margin="0,0,0,85">
 
                     </TextBlock>
 
@@ -327,7 +336,8 @@
                         TextAlignment="Center"
                         FontSize="20"
                         FontFamily="Arial"
-                        Height="Auto">
+                        Height="Auto"
+                        Margin="0,85,0,0">
 
 
                     </TextBlock>

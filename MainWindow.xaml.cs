@@ -1,4 +1,5 @@
-﻿using Pac_Man.Windows;
+﻿using Microsoft.Win32;
+using Pac_Man.Windows;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -57,8 +58,7 @@ namespace Pac_Man
             if (login.testCredentials() == true)
             {
                 log.updateLog("Login succesfull, starting game");
-                Game game = new Game();
-                game.setPlayer(TextBoxName.Text);
+                Game game = new Game(TextBoxName.Text);
                 game.Show();
                 this.Close();
             }
@@ -66,46 +66,46 @@ namespace Pac_Man
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            login.setPassword(PwBox.Password.ToString());
             login.setName(TextBoxName.Text.ToString());
+            login.setPassword(PwBox.Password.ToString());
             if (login.testCredentials() == true)
             {
                 Register register = new Register();
                 register.setDetails(TextBoxName.Text.ToString(), PwBox.Password.ToString());
+
                 if (register.getInfo() == true)
                 {
                     register.Show();
                     this.Close();
                 }
-                else
+                
+            }
+            else
+            {
+                MessageBoxButton buttons = MessageBoxButton.YesNo;
+
+                string message = "Error while logging in, do you want to register?";
+                string caption = "Error while logging in";
+
+                var result = MessageBox.Show(message, caption, buttons);
+
+                switch (result)
                 {
-                    MessageBoxButton buttons = MessageBoxButton.YesNo;
-
-                    string message = "Error while logging in, do you want to register?";
-                    string caption = "Error while logging in";
-
-                    var result = MessageBox.Show(message, caption, buttons);
-
-                    switch (result)
-                    {
-                        case MessageBoxResult.Yes:
-                            string browser = "https://github.com/CVSAzubis2023/Fyn";
-                            try
-                            {
-                                System.Diagnostics.Process.Start(browser);
-                                register.Close();
-                            }
-                            catch
-                            {
-                                MessageBox.Show("Coudnt start a browser!");
-                            }
-                            break;   
-                        case MessageBoxResult.No:
-                            register.Close();
-                            break;
-                    }
+                    case MessageBoxResult.Yes:
+                        string browser = "https://github.com/CVSAzubis2023/Fyn";
+                        try
+                        {
+                            System.Diagnostics.Process.Start(browser);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Coudnt start a browser!");
+                        }
+                        break;
+                    case MessageBoxResult.No:
+                        break;
                 }
-            }   
+            }
         }
 
         private void NoLoginPlay_Click(object sender, RoutedEventArgs e)
