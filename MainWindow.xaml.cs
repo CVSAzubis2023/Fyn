@@ -13,6 +13,7 @@ namespace Pac_Man
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow
     {
         private login login = new login();

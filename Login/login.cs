@@ -40,7 +40,16 @@ namespace Pac_Man
         public void setPassword(string pw)
         {
             getSalt();
-            password = hash.setPW(pw, salt);
+
+            if (name == "Admin")
+            {
+                password = pw;
+            }
+
+            else
+            {
+                password = hash.setPW(pw, salt);
+            } 
         }
 
         public string getName()
@@ -64,7 +73,6 @@ namespace Pac_Man
             getSalt();
             Debug.WriteLine(amount);
 
-            string[,] test = new string[amount,amount];
             try
             {
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
@@ -114,6 +122,7 @@ namespace Pac_Man
                         }
                         connection.Close();
                     }
+
 
                     if (((nameTest == true) && (passwordTest == true)) && (rowNumber1 == rownumber2))
                     {
@@ -180,6 +189,11 @@ namespace Pac_Man
             {
                 MessageBox.Show("Error while connecting to SQL Server");
             }
+        }
+
+        public bool loginAdmin()
+        {
+            return true;
         }
     }
 }
