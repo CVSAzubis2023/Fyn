@@ -1,0 +1,2 @@
+Login succesfull, starting game
+b\Fyn\logs\log2023-12-08.txt File was created

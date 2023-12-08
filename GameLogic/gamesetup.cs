@@ -103,6 +103,11 @@ namespace Pac_Man
             
         }
 
+        public int getCurrentMap()
+        {
+            return currentmap;
+        }
+
         public bool getmapInitDone()
         {
             return mapInitDone;

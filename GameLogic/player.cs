@@ -36,7 +36,6 @@ namespace Pac_Man
         {
             return tilesmoved;
         }
-        
 
         public void setPos(int x, int y)
         {

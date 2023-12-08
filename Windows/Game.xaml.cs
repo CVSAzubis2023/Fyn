@@ -14,7 +14,7 @@ namespace Pac_Man
     {
         gamesetup gamesetup = new gamesetup();
         gamefunctions game = new gamefunctions();
-        log log = new log();
+        //log log = new log();
         
 
         player player1 = new player();
@@ -41,12 +41,15 @@ namespace Pac_Man
         public Game()
         {
             InitializeComponent();
-            log.updateLog("Game page initialized");
+            //log.updateLog("Game page initialized");
         }
 
         public Game(string name)
         {
             playerName = name;
+
+            InitializeComponent();
+            //log.updateLog("Game page initialized");
         }
 
         #endregion
@@ -167,7 +170,7 @@ namespace Pac_Man
         {
             if (this.WindowState == WindowState.Normal)
             {
-                log.updateLog("Window size toggled");
+                //log.updateLog("Window size toggled");
                 this.WindowState = WindowState.Maximized;
             }
             else
@@ -178,7 +181,7 @@ namespace Pac_Man
 
         private void ButtonPlay_Click(object sender, RoutedEventArgs e)
         {
-            log.updateLog("Game starting");
+            //log.updateLog("Game starting");
 
             ButtonPlay.Visibility = Visibility.Hidden;
             ButtonBack.Visibility = Visibility.Hidden;
@@ -187,7 +190,7 @@ namespace Pac_Man
 
             player1.setLifes(3);
             player1.setScore(0);
-            //player1.setPos();
+            player1.setPos(200, 200);
             
         }
 
@@ -272,11 +275,16 @@ namespace Pac_Man
 
         public void gameend()
         {
+            score = player1.getScore();
+            level = gamesetup.getCurrentMap();
+            moves = player1.getTilesMoved();
+
             savingscores ssc = new savingscores(playerName, score, level, moves, timesplayed, highscore, playtime);
 
             ssc.SQLSetup();
             if (ssc.saveScores())
             {
+
 
             }
         }

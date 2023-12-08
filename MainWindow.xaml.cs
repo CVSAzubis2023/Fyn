@@ -18,13 +18,13 @@ namespace Pac_Man
     public partial class MainWindow
     {
         private login login = new login();
-        private log log = new log();
+        //private log log = new log();
         
         public MainWindow()
         {
             InitializeComponent();
             login.conenctSQL();
-            log.createLog();
+            //log.createLog();
 
             TextBlockHeadLine.Text = "Login";
         }
@@ -57,10 +57,13 @@ namespace Pac_Man
             login.setName(TextBoxName.Text.ToString());
             if (login.testCredentials() == true)
             {
-                log.updateLog("Login succesfull, starting game");
+                //log.updateLog("Login succesfull, starting game");
                 Game game = new Game(TextBoxName.Text);
                 game.Show();
                 this.Close();
+            }
+            else{
+                MessageBox.Show("Wrong Creds");
             }
         }
 
