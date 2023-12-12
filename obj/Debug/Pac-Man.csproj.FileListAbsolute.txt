@@ -71,3 +71,5 @@ C:\Users\FDeubner\Documents\GitHub\Fyn\obj\Debug\Windows\gameNoLogin.g.cs
 C:\Users\FDeubner\Documents\GitHub\Fyn\obj\Debug\Windows\Register.g.cs
 C:\Users\FDeubner\Documents\GitHub\Fyn\obj\Debug\Windows\gameNoLogin.baml
 C:\Users\FDeubner\Documents\GitHub\Fyn\obj\Debug\Windows\Register.baml
+G:\GitHub\Fyn\obj\Debug\Windows\Register.g.cs
+G:\GitHub\Fyn\obj\Debug\Windows\Register.baml

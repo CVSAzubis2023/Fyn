@@ -11,7 +11,7 @@ namespace Pac_Man
 {
     public class log
     {
-        private string filepath = @"C:\Users\FDeubner\Documents\GitHub\Fyn\logs\log"+ System.DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
+        private string filepath = @"\logs\log"+ System.DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
         private bool state = false;
 
         public void createLog()

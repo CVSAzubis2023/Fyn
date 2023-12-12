@@ -24,7 +24,7 @@ namespace Pac_Man.Login
         private int highscore;
         private double playtime;
 
-        private string sql = "FDEU-131\\SQLEXPRESS";
+        private string sql = "Nein\\SQLEXPRESS";
         private string user = "sa";
         private string password = "applesauce/2";
         private string database = "Test";

@@ -23,11 +23,11 @@ namespace Pac_Man
         public void conenctSQL()
         {
             //SQL Server Name
-            builder.DataSource = "FDEU-131\\SQLEXPRESS";
+            builder.DataSource = "Nein\\SQLEXPRESS";
             //SQL User Name
             builder.UserID = "sa";
             //SQL User Password
-            builder.Password = "applesauce/2";
+            builder.Password = "applesauce/02";
             //SQL Datebase
             builder.InitialCatalog = "Test";
         }

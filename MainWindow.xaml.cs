@@ -76,7 +76,7 @@ namespace Pac_Man
                 Register register = new Register();
                 register.setDetails(TextBoxName.Text.ToString(), PwBox.Password.ToString());
 
-                if (register.getInfo() == true)
+                if (true/*register.getInfo() == true*/)
                 {
                     register.Show();
                     this.Close();
