@@ -24,6 +24,7 @@ namespace Pac_Man.Windows
     {
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
         myaccount myacc = new myaccount();
+        Settings settings;
 
         private string name;
         private string password;
@@ -33,6 +34,7 @@ namespace Pac_Man.Windows
             InitializeComponent();
 
             DataContext = new Viewmodel();
+            settings = new Settings(name);
         }
 
         public bool getInfo()
@@ -91,6 +93,8 @@ namespace Pac_Man.Windows
             InfoSettings.Focusable = true;
 
             Headline.Text = "Settings";
+
+            settings.getSave();
         }
 
         private void ButtonRegister_Click(object sender, RoutedEventArgs e)
@@ -118,6 +122,7 @@ namespace Pac_Man.Windows
             double value;
             value = VolumeSlider.Value;
             Debug.WriteLine(value);
+            settings.setVolume(value);
         }
 
         private void CmbBoxSaving_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -125,9 +130,11 @@ namespace Pac_Man.Windows
             switch (CmbBoxSaving.SelectedItem)
             {
                 case "Save":
+                    settings.setSave("save");
                     Debug.WriteLine("Save");
                     break;
                 case "Dont Save":
+                    settings.setSave("dontSave");
                     Debug.WriteLine("Dont Save");
                     break;
                 default:
