@@ -76,7 +76,7 @@ namespace Pac_Man.Settings_etc
 
         public void connectSQL()
         {
-            builder.DataSource = "Nein\\SQLEXPRESS";
+            builder.DataSource = "FDEU-131\\SQLEXPRESS";
             builder.UserID = "sa";
             builder.Password = "applesauce/2";
             builder.InitialCatalog = "Test";

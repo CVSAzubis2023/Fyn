@@ -17,10 +17,10 @@ namespace Pac_Man.Settings_etc
         {
             CmbContent = new ObservableCollection<string>
             {
-                "Hallo",
-                "Blub",
-                "Blip",
-                "Blep"
+                "Einfach",
+                "Normal",
+                "Schwer",
+                "Experte"
             };
 
             Savings = new ObservableCollection<string>
