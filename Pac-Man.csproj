@@ -51,6 +51,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="GameLogic\log.cs" />
+    <Compile Include="GameLogic\movableObject.cs" />
     <Compile Include="Login\hashing.cs" />
     <Compile Include="Login\savingscores.cs" />
     <Compile Include="Settings etc\comboboxitems.cs" />

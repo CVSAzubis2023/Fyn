@@ -146,17 +146,17 @@ namespace Pac_Man.Windows
         {
             switch (CmbBox.SelectedItem)
             {
-                case "Hallo":
-                    Debug.WriteLine("Hallo");
+                case "Einfach":
+                    Debug.WriteLine("Einfach");
                     break;
-                case "Blub":
-                    Debug.WriteLine("Blub");
+                case "Normal":
+                    Debug.WriteLine("Normal");
                     break;
-                case "Blip":
-                    Debug.WriteLine("Blip");
+                case "Schwer":
+                    Debug.WriteLine("Schwer");
                     break;
-                case "Blep":
-                    Debug.WriteLine("Blep");
+                case "Experte":
+                    Debug.WriteLine("Experte");
                     break;
             }
         }

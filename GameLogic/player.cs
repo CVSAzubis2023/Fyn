@@ -1,4 +1,5 @@
-﻿using System.CodeDom.Compiler;
+﻿using Pac_Man.GameLogic;
+using System.CodeDom.Compiler;
 using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Windows.Controls;
@@ -6,41 +7,32 @@ using System.Windows.Input;
 
 namespace Pac_Man
 {
-    public class player
+    public class player : movableObject
     {
-        private int lifes = 0;
-        private int score = 0;
+        #region Vars
 
-        private double speed = 4 * 8;
+        protected int lifes = 0;
+        protected int score = 0;
+        protected int tilesmoved = 0;
 
-        private int orrientation = 0;
-        private int tilesmoved = 0;
+        #endregion
 
-        private int posX = 0;
-        private int posY = 0;
+        #region Construtors
 
-        private int newX = 0;
-        private int newY = 0;
-
-        public int getPosX()
+        public player(string name, int x, int y)
         {
-            return posX;
+            base.name = name;
+            base.posX = x;
+            base.posY = y;
         }
 
-        public int getPosY()
-        {
-            return posY;
-        }
+        #endregion
+
+        #region Methods
 
         public int getTilesMoved()
         {
             return tilesmoved;
-        }
-
-        public void setPos(int x, int y)
-        {
-            posX = x;
-            posY = y;
         }
 
         public int getLifes()
@@ -63,16 +55,6 @@ namespace Pac_Man
             lifes++;
         }
 
-        public void move(string sender, double x, double y)
-        {
-            tilesmoved++;
-
-            newX = (int)x;
-            newY = (int)y;
-            
-            setPos(newX, newY);
-        }
-
         public int getScore()
         {
             return score;
@@ -88,14 +70,6 @@ namespace Pac_Man
             score++;
         }
 
-        public double getSpeed()
-        {
-            return speed;
-        }
-
-        public void setOrientation(int x)
-        {
-            orrientation = x;
-        }
+        #endregion
     }
 }

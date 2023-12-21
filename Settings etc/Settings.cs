@@ -8,6 +8,7 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Diagnostics;
+using System.Collections.Specialized;
 
 namespace Pac_Man.Settings_etc
 {
@@ -17,6 +18,7 @@ namespace Pac_Man.Settings_etc
 
         private double volume;
         private string saveState;
+        private string difficulty;
         private string requester;
 
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -49,19 +51,41 @@ namespace Pac_Man.Settings_etc
         public void setSave(string value)
         {
             saveState = value;
+            if (writeToDataBase("saveState"))
+            {
+                return;
+            }
         }
 
         public string getSave()
         {
             if (saveState == null)
             {
-                getFromDataBase(saveState);
-                return "";
+                getFromDataBase("saveState");
+                return saveState;
             }
             else
             {
                 return saveState;
             }
+        }
+
+        public void setDifficulty(string value)
+        {
+            difficulty = value;
+            if (writeToDataBase("difficulty"))
+            {
+                return;
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+
+        public string getDifficulty()
+        {
+            return difficulty;
         }
 
         #endregion
@@ -70,28 +94,140 @@ namespace Pac_Man.Settings_etc
 
         private bool writeToDataBase(string commandRequester)
         {
+            string command;
+
+            if (commandRequester == "saveState")
+            {
+                command = "INSERT INTO dbo.Table_1 savestate VALUES (@value) WHERE Name = '" + requester + "'";
+            }
+            else if (commandRequester == "volume")
+            {
+                command = "INSERT INTO dbo.Table_1 volume VALUES (@value) WHERE Name = '" + requester + "'";
+            }
+            else if (commandRequester == "difficulty")
+            {
+                command = "INSERT INTO dbo.Table_1 difficulty VALUES (@value) WHERE Name = '" + requester + "'";
+            }
+            else
+            {
+                throw new NotImplementedException("You are trying to write into something that doesnt exist in the database");
+            }
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(command, connection))
+                    {
+                        switch (commandRequester)
+                        {
+                            case "saveState":
+                                cmd.Parameters.Add("@value", System.Data.SqlDbType.NVarChar).Value = saveState;
+                                break;
+                            case "volume":
+                                cmd.Parameters.Add("@value", System.Data.SqlDbType.Float).Value = volume;
+                                break;
+                            case "difficulty":
+                                cmd.Parameters.Add("@value", System.Data.SqlDbType.NVarChar).Value = difficulty;
+                                break;
+                            default:
+                                throw new NotImplementedException();
+                        }
+
+                        connection.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        connection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
             return true;
         }
 
         private void getFromDataBase(string commandRequester)
         {
-            switch (commandRequester)
+            if (commandRequester == "saveState")
             {
-                case "":
-                    break;
-                case "a":
-                    break;
-                default:
-                    break;
-            }
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                    {
+                        string command = "";
 
-            try
-            {
+                        using (SqlCommand cmd = new SqlCommand(command, connection))
+                        {
+                            connection.Open();
 
+                            using (SqlDataReader rd = cmd.ExecuteReader())
+                            {
+                                rd.Read();
+                                saveState = rd.GetString(0);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
             }
-            catch (Exception ex)
+            else if (commandRequester == "volume")
             {
-                Debug.WriteLine(ex);
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                    {
+                        string command = "";
+
+                        using (SqlCommand cmd = new SqlCommand(command, connection))
+                        {
+                            connection.Open();
+
+                            using (SqlDataReader rd = cmd.ExecuteReader())
+                            {
+                                rd.Read();
+                                volume = rd.GetDouble(0);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+            else if (commandRequester == "difficulty")
+            {
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                    {
+                        string command = "";
+
+                        using (SqlCommand cmd = new SqlCommand(command, connection))
+                        {
+                            connection.Open();
+                            using (SqlDataReader rd = cmd.ExecuteReader())
+                            {
+                                difficulty = rd.GetString(0);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
+            else
+            {
+                throw new NotImplementedException("Requester does not exist in Database, please check!");
             }
         }
 
@@ -104,5 +240,10 @@ namespace Pac_Man.Settings_etc
         }
 
         #endregion
+
+        public Exception()
+        {
+
+        }
     }
 }

@@ -402,10 +402,11 @@
                     Grid.Column="1"
                     x:Name="CmbBox"
                     Text="Test"
-                    ItemsSource="{Binding CmbContent}" 
                     Margin="10,60,10,70"
+                    ItemsSource="{Binding CmbContent}"
                     Background="Transparent"
-                    SelectionChanged="CmbBox_SelectionChanged"/>
+                    SelectionChanged="CmbBox_SelectionChanged">
+                </ComboBox>
 
                 <!--#endregion-->
 
@@ -426,11 +427,10 @@
                     Grid.Row="0"
                     Grid.Column="2"
                     Name="CmbBoxSaving"
-                    ItemsSource="{Binding Savings}"
                     Margin="10,60,10,70"
+                    ItemsSource="{Binding Savings}"
                     Background="Transparent"
                     SelectionChanged="CmbBoxSaving_SelectionChanged">
-                    
                 </ComboBox>
                 
                 

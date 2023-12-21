@@ -1,43 +1,9 @@
-﻿namespace Pac_Man
+﻿using Pac_Man.GameLogic;
+
+namespace Pac_Man
 {
-    public class ghost
+    public class ghost : movableObject
     {
-        private int posX = 0;
-        private int posY = 0;
-
-        private int speed;
-        private int state;
         
-        public void move(int posPlayerX, int posPlayerY)
-        {
-            if (posPlayerX > posX)
-            {
-                    //try to move up;
-            }
-
-            if (posPlayerX < posX)
-            {
-                //try to move down
-            }
-
-            if (posPlayerY > posY)
-            {
-                // try to move right
-            }
-            if (posPlayerY < posY)
-            {
-                // try to move left
-            }
-        }
-
-        public int getPosX()
-        {
-            return posX;
-        }
-
-        public int getPosY()
-        {
-            return posY;
-        }
     }
 }
