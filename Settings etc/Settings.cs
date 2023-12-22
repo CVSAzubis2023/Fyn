@@ -240,10 +240,5 @@ namespace Pac_Man.Settings_etc
         }
 
         #endregion
-
-        public Exception()
-        {
-
-        }
     }
 }

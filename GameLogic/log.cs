@@ -48,7 +48,7 @@ namespace Pac_Man
 
             else
             {
-
+                createLog();
             }
         }
 

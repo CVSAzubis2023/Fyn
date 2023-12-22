@@ -17,12 +17,12 @@ namespace Pac_Man
         //log log = new log();
         
 
-        player player1 = new player();
+        player player1 = new player("name", 0,0);
 
-        ghost ghostRed = new ghost();
-        ghost ghostBlue = new ghost();
-        ghost ghostOrange = new ghost();
-        ghost ghostPurple = new ghost();
+        ghost ghostRed = new ghost("Red", 0);
+        ghost ghostBlue = new ghost("Blue", 1);
+        ghost ghostOrange = new ghost("Orange", 2);
+        ghost ghostPurple = new ghost("Purple", 3);
 
         #region Player Info
 
@@ -81,7 +81,7 @@ namespace Pac_Man
                     if (e.Key == Key.S || e.Key == Key.Down)
                     {
                         Debug.WriteLine("S");
-                        if (Canvas.GetTop(PlayerPacMan) < 930)
+                        if (Canvas.GetTop(PlayerPacMan) < 850)
                         {
                             keyString = "S";
                         }
@@ -104,8 +104,13 @@ namespace Pac_Man
                     }
                 }
             }
-            
-            player1.move(keyString, Canvas.GetLeft(PlayerPacMan), Canvas.GetLeft(PlayerPacMan));
+
+            double[] pos = new double[2];
+            pos[0] = Canvas.GetLeft(PlayerPacMan);
+            pos[1] = Canvas.GetLeft(PlayerPacMan);
+
+
+            player1.move(pos);
             
             switch (keyString)
             {
@@ -116,7 +121,7 @@ namespace Pac_Man
                     break;
                 case "A":
                     PlayerPacMan.RenderTransform = new RotateTransform(0);
-                    Canvas.SetLeft(PlayerPacMan, Canvas.GetLeft(PlayerPacMan) - player1.getSpeed());
+                    //Canvas.SetLeft(PlayerPacMan, Canvas.GetLeft(PlayerPacMan) - player1.getSpeed());
                     player1.setOrientation(3);
                     break;
                 case "S":
@@ -126,34 +131,34 @@ namespace Pac_Man
                     break;
                 case "D":
                     PlayerPacMan.RenderTransform = new RotateTransform(180);
-                    Canvas.SetLeft(PlayerPacMan, Canvas.GetLeft(PlayerPacMan) + player1.getSpeed());
+                    //Canvas.SetLeft(PlayerPacMan, Canvas.GetLeft(PlayerPacMan) + player1.getSpeed());
                     player1.setOrientation(1);
                     break;
             }
 
             
-            ghostRed.move(player1.getPosX(), player1.getPosY());
+            ghostRed.move(player1.getPos());
             if (player1.getTilesMoved() > 49)
             {
-                ghostBlue.move(player1.getPosX(), player1.getPosY());
+                ghostBlue.move(player1.getPos());
                 if (player1.getTilesMoved() > 99)
                 {
-                    ghostOrange.move(player1.getPosX(), player1.getPosY());
+                    ghostOrange.move(player1.getPos());
                     if (player1.getTilesMoved() > 150)
                     {
-                        ghostPurple.move(player1.getPosX(), player1.getPosY());
+                        ghostPurple.move(player1.getPos());
                     }
                 }
             }
             
             //Blue ghost
-            game.collisionDetection(player1.getPosX(), player1.getPosY(), ghostBlue.getPosX(), ghostBlue.getPosY());
+            game.collisionDetection(player1.getPos(), ghostBlue.getPos());
             //Red ghost
-            game.collisionDetection(player1.getPosX(), player1.getPosY(), ghostRed.getPosX(), ghostRed.getPosY());
+            game.collisionDetection(player1.getPos(), ghostRed.getPos());
             //Yellow ghost
-            game.collisionDetection(player1.getPosX(), player1.getPosY(), ghostOrange.getPosX(), ghostOrange.getPosY());
+            game.collisionDetection(player1.getPos(), ghostOrange.getPos());
             //Purple ghost
-            game.collisionDetection(player1.getPosX(), player1.getPosY(), ghostPurple.getPosX(), ghostPurple.getPosY());
+            game.collisionDetection(player1.getPos(), ghostPurple.getPos());
         }
 
         private void Close_OnClick(object sender, RoutedEventArgs e)

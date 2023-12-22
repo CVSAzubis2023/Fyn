@@ -129,12 +129,12 @@
     <Canvas Background="Transparent">
         <Grid Background="Transparent"
               Name="Waende" 
-              Height="835" 
-              Width="790"
-              Canvas.Top="115"
-              Canvas.Bottom="5"
-              HorizontalAlignment="Left" 
-              VerticalAlignment="Center" Canvas.Left="5">
+              Height="850" 
+              Width="800"
+              Canvas.Top="100"
+              Canvas.Bottom="0"
+              HorizontalAlignment="Center" 
+              VerticalAlignment="Center">
             <!--31 Reihen -->
             <Grid.RowDefinitions>
                 <RowDefinition />
@@ -297,11 +297,11 @@
         <!--#region -->
         <Rectangle
             x:Name="PlayerPacMan"
-            Height="32"
-            Width="32" 
-            Canvas.Left="448" 
-            Canvas.Top="262"
-            RenderTransformOrigin="0.5,0.5">
+            Height="25"
+            Width="27" 
+            Canvas.Left="429" 
+            Canvas.Top="180"
+            RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="/Pictures/PacMan.png"></ImageBrush>
             </Rectangle.Fill>

@@ -12,9 +12,9 @@ namespace Pac_Man.GameLogic
 
         protected string name;
 
-        protected double posX;
-        protected double posY;
-        protected double speed = 4 * 8;
+        //0 => x | 1 => y
+        protected double[] pos;
+        protected double speed = 5 * 5;
 
         protected short orientation;
 
@@ -31,9 +31,19 @@ namespace Pac_Man.GameLogic
 
         #region Methods
 
-        public void move(int x, int y)
+        public void move(double[] pos)
         {
               
+        }
+
+        public double getSpeed()
+        {
+            return speed;
+        }
+
+        public void setOrientation(short x)
+        {
+            this.orientation = x;
         }
 
         public short getOrientation()

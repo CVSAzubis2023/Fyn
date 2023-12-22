@@ -2,9 +2,9 @@
 {
     public class gamefunctions
     {
-        public void collisionDetection(int playerPosX, int playerPosY, int ghostX, int ghostY)
+        public void collisionDetection(double[] playerPos, double[] ghostPos)
         {
-            if ((playerPosX == ghostX) && (playerPosY == ghostY))
+            if ((playerPos[0] == ghostPos[0]) && (playerPos[1] == ghostPos[1]))
             {
                 
             }
