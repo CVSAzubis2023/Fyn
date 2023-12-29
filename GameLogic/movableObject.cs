@@ -53,17 +53,13 @@ namespace Pac_Man.GameLogic
 
         public double[] getPos()
         {
-            double[] pos = new double[2];
-            pos[0] = this.posX;
-            pos[1] = this.posY;
-
             return pos;
         }
 
         public void setPos(double x, double y)
         {
-            this.posX = x;
-            this.posY = y;
+            this.pos[0] = x;
+            this.pos[1] = y;
         }
 
         #endregion

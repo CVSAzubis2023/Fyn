@@ -1,0 +1,22 @@
+root{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    color: black;
+}
+
+.menu-nav{
+    font-family: Comic;
+    font-size: 28px;
+    color: pink;
+    text-align: center;
+}
+
+.ul-nav{
+    display: inline-block;
+    text-align: left;
+}
+
+li{
+    display: inline-block;
+    margin: 10px;
+}

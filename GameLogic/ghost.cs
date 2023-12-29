@@ -73,7 +73,10 @@ namespace Pac_Man
 
         private void aiYellow() 
         {
-        
+            if ()
+            {
+
+            }
         }
 
         private void aiBlue()
