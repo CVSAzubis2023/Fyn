@@ -1,11 +1,23 @@
 <div class="main">
-
   <div class="menu-nav">
     <ul class="ul-nav">
-      <li>Hallo</li>
-      <li>Test</li>
-      <a href="./login/login.component.html">Test1</a>
+      <li class="li-inline">Hallo</li>
+      <li class="li-inline">Test</li>
+      <a class="li-inline" href="./login/login.component.html">Test1</a>
     </ul>
   </div>
-  <h1>Test</h1>
+  <h1>To-Do Dings</h1>
+  <div>
+    <ul>
+        <li *ngFor="let item of items">{{item.description}}</li>
+    </ul>
+    <input
+    #newItem
+    placeholder="add an item"
+    (keyup.enter)="addItem(newItem.value); newItem.value= ''"
+    class="lg-text-input"
+    id="addIteminput" />
+
+    <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
+  </div>
 </div>

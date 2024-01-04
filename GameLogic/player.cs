@@ -22,8 +22,8 @@ namespace Pac_Man
         public player(string name, int x, int y)
         {
             base.name = name;
-            base.posX = x;
-            base.posY = y;
+            base.pos[0] = x;
+            base.pos[1] = y;
         }
 
         #endregion

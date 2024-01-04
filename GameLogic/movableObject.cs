@@ -13,7 +13,7 @@ namespace Pac_Man.GameLogic
         protected string name;
 
         //0 => x | 1 => y
-        protected double[] pos;
+        protected double[] pos = new double[2];
         protected double speed = 5 * 5;
 
         protected short orientation;

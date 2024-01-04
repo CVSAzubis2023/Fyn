@@ -53,8 +53,8 @@ namespace Pac_Man
         
         private void LoginButton_OnClick(object sender, RoutedEventArgs e)
         {
-            login.setPassword(PwBox.Password.ToString());
             login.setName(TextBoxName.Text.ToString());
+            login.setPassword(PwBox.Password.ToString());
             if (login.testCredentials() == true)
             {
                 //log.updateLog("Login succesfull, starting game");
@@ -81,7 +81,6 @@ namespace Pac_Man
                     register.Show();
                     this.Close();
                 }
-                
             }
             else
             {

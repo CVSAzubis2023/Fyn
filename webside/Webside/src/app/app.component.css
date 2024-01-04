@@ -16,7 +16,7 @@ root{
     text-align: left;
 }
 
-li{
+.li-inline{
     display: inline-block;
     margin: 10px;
 }

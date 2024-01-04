@@ -16,7 +16,6 @@ namespace Pac_Man
         gamefunctions game = new gamefunctions();
         //log log = new log();
         
-
         player player1 = new player("name", 0,0);
 
         ghost ghostRed = new ghost("Red", 0);
@@ -104,13 +103,6 @@ namespace Pac_Man
                     }
                 }
             }
-
-            double[] pos = new double[2];
-            pos[0] = Canvas.GetLeft(PlayerPacMan);
-            pos[1] = Canvas.GetLeft(PlayerPacMan);
-
-
-            player1.move(pos);
             
             switch (keyString)
             {

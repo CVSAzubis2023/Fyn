@@ -9,6 +9,33 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
-  title = 'Webside';
+  title = 'ToDo-App';
+
+  filter: "all" | "active" | "done" = "all";
+
+  allItems = [
+    {description: "Learn Angular", done: false},
+    {description: "Create Blueprint for Webside", done: false},
+    {description: "Create Webside", done: false },
+    {description: "Link with Database", done: false },
+  ];
+
+  get items(){
+    if(this.filter === "all"){
+      return this.allItems;
+    }
+    return this.allItems.filter((item) =>
+      this.filter === "done" ? item.done : !item.done
+    );
+  }
+
+  addItem(description: string){
+    this.allItems.unshift({
+      description,
+      done: false
+    });
+  }
+
 }
