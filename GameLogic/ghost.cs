@@ -51,23 +51,27 @@ namespace Pac_Man
             }
         }
 
-        private void aiRed()
+        private double aiRed()
         {
             if (posPlayer[0] < pos[0])
             {
                 //move left
+                return pos[0] - speed;
             }
             else if (posPlayer[0] > pos[0])
             {
                 //move right
+                return pos[0] + speed;
             }
             else if (posPlayer[1] < pos[1])
             {
                 //move up
+                return pos[1] - speed;
             }
             else if (posPlayer[1] > pos[1])
             {
                 //move down
+                return pos[1] + speed;
             }
         }
 

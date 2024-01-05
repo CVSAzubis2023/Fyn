@@ -31,7 +31,7 @@ namespace Pac_Man
 
         private void ButtonClose_OnClick(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void ButtonMinimize_OnClick(object sender, RoutedEventArgs e)
