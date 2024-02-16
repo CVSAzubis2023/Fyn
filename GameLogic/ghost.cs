@@ -73,6 +73,7 @@ namespace Pac_Man
                 //move down
                 return pos[1] + speed;
             }
+            return 0;
         }
 
         private void aiYellow() 
