@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pac_Man.Windows"
         mc:Ignorable="d"
-        Title="Register for PacMan" 
+        Title="Profile" 
         Height="450" 
         Width="800"
         WindowStartupLocation="CenterScreen"
@@ -74,6 +74,7 @@
             <ColumnDefinition Width="680*" />
         </Grid.ColumnDefinitions>
 
+        <!--#region SideBar-->
         <Grid 
             Grid.Column="0">
 
@@ -132,13 +133,18 @@
 
             </Button>
         </Grid>
+        
+        <!--#endregion-->
 
+        <!--#region MainBody-->
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="108.3*" />
                 <RowDefinition Height="325*" />
             </Grid.RowDefinitions>
+
+            <!--#region Title-->
 
             <Grid
                 Grid.Column="0"
@@ -160,12 +166,16 @@
                 </TextBlock>
             </Grid>
 
+            <!--#endregion-->
+
+
+            <!--#region Account Info-->
             <Grid
                 Name="InfoYourAccount"
                 Grid.Column="1" 
                 Background="Gray" 
                 Grid.Row="1"
-                Visibility="Visible">
+                Visibility="Hidden">
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -346,12 +356,16 @@
 
             </Grid>
 
+            <!--#endregion-->
+
+            <!--#region Settings-->
+
             <Grid
                 Grid.Column="1"
                 Grid.Row="1"
                 Background="Gray"
                 Name="InfoSettings"
-                Visibility="Hidden"
+                Visibility="Visible"
                 Focusable="False">
 
                 <Grid.ColumnDefinitions>
@@ -384,7 +398,7 @@
                 <!--#endregion-->
 
                 <!--#region Difficulty-->
-                
+
                 <TextBlock
                     Grid.Row="0"
                     Grid.Column="1"
@@ -404,14 +418,20 @@
                     Text="Test"
                     Margin="10,60,10,70"
                     ItemsSource="{Binding CmbContent}"
-                    Background="Transparent"
                     SelectionChanged="CmbBox_SelectionChanged">
+                    <ComboBox.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="Black" Offset="1" />
+                            <GradientStop Color="White" Offset="0.5"/>
+
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
                 </ComboBox>
 
                 <!--#endregion-->
 
                 <!--#region Saving-->
-                
+
                 <TextBlock
                     Grid.Row="0"
                     Grid.Column="2"
@@ -420,7 +440,7 @@
                     FontFamily="Arial"
                     FontSize="18"
                     Margin="10,10,10,120">
-                    
+
                 </TextBlock>
 
                 <ComboBox
@@ -432,11 +452,49 @@
                     Background="Transparent"
                     SelectionChanged="CmbBoxSaving_SelectionChanged">
                 </ComboBox>
-                
-                
+
+
                 <!--#endregion-->
-                
+
+                <!--#region Save Changes-->
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Name="SaveChangesText"
+                    Content="Save?"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    FontFamily="Arial"
+                    FontSize="18"
+                    Margin="10,10,10,92"
+                    Background="Transparent">
+                </Label>
+
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Name="ButtonSaveChanges"
+                    Content="Save"
+                    Foreground="Red"
+                    Margin="10,90,10,40"
+                    Click="ButtonSaveChanges_Click">
+                    <Button.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Color="Black" Offset="1"/>
+                            <GradientStop Color="Gray" Offset="0"/>
+                        </RadialGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <!--#endregion-->
+
             </Grid>
+
+            <!--#endregion-->
+
         </Grid>
+        <!--#endregion-->
+        
     </Grid>
 </Window>

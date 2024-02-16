@@ -50,8 +50,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="GameLogic\log.cs" />
-    <Compile Include="GameLogic\movableObject.cs" />
+    <Compile Include="abstractClasses\movableObject.cs" />
+    <Compile Include="GameLogic\GameObjects\ghost.cs" />
+    <Compile Include="GameLogic\GameObjects\player.cs" />
+    <Compile Include="GameLogic\Logic\collisionDetection.cs" />
+    <Compile Include="GameLogic\Logic\gameEnd.cs" />
+    <Compile Include="GameLogic\Logic\gameStart.cs" />
     <Compile Include="Login\hashing.cs" />
     <Compile Include="Login\savingscores.cs" />
     <Compile Include="Settings etc\comboboxitems.cs" />
@@ -72,10 +76,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GameLogic\gamefunctions.cs" />
-    <Compile Include="GameLogic\gamesetup.cs" />
-    <Compile Include="GameLogic\ghost.cs" />
-    <Compile Include="GameLogic\player.cs" />
     <Compile Include="Windows\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>

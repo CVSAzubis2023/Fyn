@@ -160,5 +160,10 @@ namespace Pac_Man.Windows
                     break;
             }
         }
+
+        private void ButtonSaveChanges_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
