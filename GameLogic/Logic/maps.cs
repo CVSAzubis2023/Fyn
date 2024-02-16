@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pac_Man.GameLogic.GameObjects
+namespace Pac_Man.GameLogic.Logic
 {
-    internal class ghost : movableObject
+    internal class maps
     {
+
 
     }
 }

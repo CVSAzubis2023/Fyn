@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pac_Man.GameLogic.GameObjects
 {
-    internal class player
+    internal class player : movableObject
     {
     }
 }

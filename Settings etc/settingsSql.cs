@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pac_Man.GameLogic.GameObjects
+using Pac_Man.abstractClasses;
+
+namespace Pac_Man.Settings_etc
 {
-    internal class ghost : movableObject
+    public class settingsSql : sqlBase
     {
 
     }

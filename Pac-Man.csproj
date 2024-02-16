@@ -51,16 +51,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="abstractClasses\movableObject.cs" />
+    <Compile Include="abstractClasses\sqlBase.cs" />
     <Compile Include="GameLogic\GameObjects\ghost.cs" />
     <Compile Include="GameLogic\GameObjects\player.cs" />
     <Compile Include="GameLogic\Logic\collisionDetection.cs" />
     <Compile Include="GameLogic\Logic\gameEnd.cs" />
     <Compile Include="GameLogic\Logic\gameStart.cs" />
+    <Compile Include="GameLogic\Logic\maps.cs" />
     <Compile Include="Login\hashing.cs" />
     <Compile Include="Login\savingscores.cs" />
     <Compile Include="Settings etc\comboboxitems.cs" />
     <Compile Include="Settings etc\myaccount.cs" />
     <Compile Include="Settings etc\Settings.cs" />
+    <Compile Include="Settings etc\settingsSql.cs" />
     <Compile Include="Windows\gameNoLogin.xaml.cs">
       <DependentUpon>gameNoLogin.xaml</DependentUpon>
     </Compile>
