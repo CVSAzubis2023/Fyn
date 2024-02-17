@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "G:\\GitHub\\Fyn\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1B43AC6F-6484-4CC6-94DB-6DFD3BDD1B0B}|Pac-Man.csproj|g:\\github\\fyn\\settings etc\\settingssql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B43AC6F-6484-4CC6-94DB-6DFD3BDD1B0B}|Pac-Man.csproj|solutionrelative:settings etc\\settingssql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B43AC6F-6484-4CC6-94DB-6DFD3BDD1B0B}|Pac-Man.csproj|G:\\GitHub\\Fyn\\settings etc\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B43AC6F-6484-4CC6-94DB-6DFD3BDD1B0B}|Pac-Man.csproj|solutionrelative:settings etc\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B43AC6F-6484-4CC6-94DB-6DFD3BDD1B0B}|Pac-Man.csproj|g:\\github\\fyn\\windows\\register.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B43AC6F-6484-4CC6-94DB-6DFD3BDD1B0B}|Pac-Man.csproj|solutionrelative:windows\\register.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 193,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 745,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Register.xaml.cs",
+              "DocumentMoniker": "G:\\GitHub\\Fyn\\Windows\\Register.xaml.cs",
+              "RelativeDocumentMoniker": "Windows\\Register.xaml.cs",
+              "ToolTip": "G:\\GitHub\\Fyn\\Windows\\Register.xaml.cs",
+              "RelativeToolTip": "Windows\\Register.xaml.cs",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAmwHwAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-17T12:24:06.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "G:\\GitHub\\Fyn\\Settings etc\\Settings.cs",
+              "RelativeDocumentMoniker": "Settings etc\\Settings.cs",
+              "ToolTip": "G:\\GitHub\\Fyn\\Settings etc\\Settings.cs",
+              "RelativeToolTip": "Settings etc\\Settings.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAowFkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-16T22:28:03.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "settingsSql.cs",
+              "DocumentMoniker": "G:\\GitHub\\Fyn\\Settings etc\\settingsSql.cs",
+              "RelativeDocumentMoniker": "Settings etc\\settingsSql.cs",
+              "ToolTip": "G:\\GitHub\\Fyn\\Settings etc\\settingsSql.cs",
+              "RelativeToolTip": "Settings etc\\settingsSql.cs",
+              "ViewState": "AQIAAE8AAAAAAAAAAAASwGIAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-16T22:28:00.683Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

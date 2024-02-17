@@ -15,7 +15,7 @@ namespace Pac_Man.abstractClasses
     {
         #region Vars & Objs
 
-        SqlConnectionStringBuilder builder;
+        protected SqlConnectionStringBuilder builder;
 
         protected string sSqlServer;
         protected string sSqlUser;
