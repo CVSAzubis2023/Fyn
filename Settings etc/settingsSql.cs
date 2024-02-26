@@ -86,23 +86,16 @@ namespace Pac_Man.Settings_etc
             return true;
         }
 
+        #region Write To Database
 
-        private bool writeToDataBase(string commandRequester)
+
+        private bool writeToDataBaseDifficulty(string commandRequester)
         {
-            else if (commandRequester == "volume")
-            {
-                command = "INSERT INTO dbo.Table_1 volume VALUES (@value) WHERE Name = '" + requester + "'";
-            }
-            else if (commandRequester == "difficulty")
-            {
-                command = "INSERT INTO dbo.Table_1 difficulty VALUES (@value) WHERE Name = '" + requester + "'";
-            }
-
             try
             {
                 using (SqlConnection connection = new SqlConnection(base.builder.ConnectionString))
                 {
-                    using (SqlCommand cmd = new SqlCommand(command, connection))
+                    using (SqlCommand cmd = new SqlCommand(sqlCommands["difficulty"], connection))
                     {
                         switch (commandRequester)
                         {
@@ -134,6 +127,12 @@ namespace Pac_Man.Settings_etc
 
             return true;
         }
+
+        #endregion
+
+
+        #region Get From DataBase
+
 
         private void getFromDataBaseDifficulty()
         {
@@ -211,6 +210,9 @@ namespace Pac_Man.Settings_etc
                 Debug.WriteLine(ex);
             }
         }
+
+        #endregion
+
 
         private void connectSQL()
         {
